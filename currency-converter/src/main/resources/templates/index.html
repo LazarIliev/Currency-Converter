@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!--to add login for admin-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form action="/convert" method="get" name="currency-convert-form" id="currency-convert-form"> <!--th:object="${order}"-->
+                <div class="form-group">
+                    <label for="codeFrom">From</label>
+                        <select class="form-control selectpicker" name="codeFrom" id="codeFrom"><!--th:field="*{pizza}" id="pizza"-->
+                        <option value="">Nothing selected</option>
+                        <option th:each="currency : ${currencies}"
+                                th:value="${currency.getCode()}"
+                                th:text="${currency.getCode()}" >
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="codeTo">To</label>
+                        <select class="form-control selectpicker" id="codeTo"  ><!-- th:field="*{dips}" id="dips" multiple-->
+<!--                            <option value="">Nothing selected</option>-->
+                            <option th:each="currency : ${currencies}"
+                                    th:value="${currency.getCode()}"
+                                    th:text="${currency.getCode()}">
+                            </option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="currencyAmountToConvert">Sum:</label>
+                    <input type="number" id="currencyAmountToConvert" >
+                </div>
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <label>Result:</label>
+        <output th:type="Double" id="convertedAmount"></output>
+    </div>
+    <h1>Currency Table</h1>
+    <div class="row col-md-7 table-responsive">
+        <table id="currencyTable" class="table">
+            <thead>
+            <tr>
+                <th>CODE</th>
+                <th>Name</th>
+                <th>Rate</th>
+                <th>Reverse Rate</th><!--  to add some description about that rate ~ 1 lev-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="currency, rowStat: ${currencies}"
+                th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+                <td th:text="${currency.getCode()}"></td>
+                <td th:text="${currency.getName()}">Jack</td>
+                <td th:text="${currency.getRate()}">23</td>
+                <td th:text="${currency.getReverse_rate()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
