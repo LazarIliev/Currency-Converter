@@ -1,27 +1,27 @@
 package com.example.currencyconverter;
 
-import com.example.currencyconverter.dao.AdminRepository;
-import com.example.currencyconverter.dao.CurrencyRepository;
-import com.example.currencyconverter.models.Admin;
+import com.example.currencyconverter.repositories.AdminRepository;
+import com.example.currencyconverter.repositories.CurrencyRepository;
 import com.example.currencyconverter.models.Currency;
 import com.example.currencyconverter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import javax.sql.DataSource;
 import java.util.List;
 
+//@EnableAutoConfiguration
 @SpringBootApplication
-@EnableJpaRepositories("com.example.currencyconverter.dao")
+@EnableJpaRepositories("com.example.currencyconverter.repositories")
 @EntityScan("com.example.currencyconverter.models")
 public class CurrencyConverterApplication implements CommandLineRunner {
 
-	@Autowired
-	DataSource dataSource;//useless?
+//	@Autowired
+//	DataSource dataSource;//useless?
 
 	@Autowired
 	AdminRepository adminRepository;
@@ -38,7 +38,7 @@ public class CurrencyConverterApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		List<Currency> currencyList = currencyService.getParsedCurrencies();
+		List<Currency> currencyList = currencyService.getParsedCurrencies();//todo to change the name of the method
 		for (Currency currency: currencyList){
 			currencyRepository.save(currency);
 		}

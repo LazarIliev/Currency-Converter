@@ -3,15 +3,25 @@ package com.example.currencyconverter.models;
 import javax.persistence.*;
 
 @Entity(name = "currencies")
+
 public class Currency {
 
     @Id
-    @Column(name = "code")
+    @Column//(name = "code")
     private String code;
     private String name;
     private Double reverse_rate;
     private Double rate;
+    private int ratio;
 
+
+    public int getRatio() {
+        return ratio;
+    }
+
+    public void setRatio(int ratio) {
+        this.ratio = ratio;
+    }
 
     public String getCode() {
         return code;

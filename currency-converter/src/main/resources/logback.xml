@@ -8,7 +8,7 @@
             </Pattern>
         </layout>
     </appender>
-    <logger name="org.springframework.jdbc" level="error" additivity="false">
+    <logger name="org.springframework.jdbc" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="com.example.currencyconverter" level="error" additivity="false">

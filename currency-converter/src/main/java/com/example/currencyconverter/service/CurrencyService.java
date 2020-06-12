@@ -1,7 +1,10 @@
 package com.example.currencyconverter.service;
 
 import com.example.currencyconverter.models.Currency;
+import com.example.currencyconverter.repositories.CurrencyRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.io.*;
 import java.net.URL;
@@ -15,6 +18,17 @@ import javax.xml.parsers.*;
 
 @Service
 public class CurrencyService {
+
+   @Autowired
+   CurrencyRepository currencyRepository;
+
+   public Iterable<Currency> getAllCurrencies(){
+       return currencyRepository.findAll();
+   }
+
+   public void addCurrency(Currency currency){
+       currencyRepository.save(currency);
+   }
 
     public List<Currency> getParsedCurrencies(){
         getCurrenciesFromBNB();
@@ -32,7 +46,7 @@ public class CurrencyService {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    Currency currency = new Currency();//CODE, NAME_, REVERSERATE, RATE
+                    Currency currency = new Currency();//CODE, NAME_, REVERSERATE, RATE to add RATIO
                     currency.setName(eElement
                             .getElementsByTagName("NAME_").item(0).getTextContent());
                     currency.setCode(eElement
@@ -41,6 +55,8 @@ public class CurrencyService {
                             .getElementsByTagName("REVERSERATE").item(0).getTextContent()));
                     currency.setRate(Double.valueOf(eElement
                             .getElementsByTagName("RATE").item(0).getTextContent()));
+                    currency.setRatio(Integer.parseInt(eElement
+                            .getElementsByTagName("RATIO").item(0).getTextContent()));
                     currencyList.add(currency);
                 }
             }
@@ -61,11 +77,9 @@ public class CurrencyService {
             while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1){
                 fileOutputStream.write(dataBuffer, 0, bytesRead);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 }

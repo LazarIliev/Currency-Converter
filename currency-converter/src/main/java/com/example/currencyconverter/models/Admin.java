@@ -3,10 +3,10 @@ package com.example.currencyconverter.models;
 import javax.persistence.*;
 
 @Entity(name = "admins")
-public class Admin {
+public class Admin {//to extend user class
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column//(name="id")
     private int id;
     private String name;
     private String password;

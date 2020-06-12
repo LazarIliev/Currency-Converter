@@ -1,4 +1,4 @@
-package com.example.currencyconverter.dao;
+package com.example.currencyconverter.repositories;
 
 import com.example.currencyconverter.models.Currency;
 import org.springframework.data.repository.CrudRepository;
