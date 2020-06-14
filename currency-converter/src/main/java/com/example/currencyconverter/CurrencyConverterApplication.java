@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories("com.example.currencyconverter.dao")
 @EntityScan("com.example.currencyconverter.domain")
-public class CurrencyConverterApplication implements CommandLineRunner {
+public class CurrencyConverterApplication {
 	@Autowired
 	CurrencyService currencyService;
 //packages to add??: constants - constant defined class,
@@ -22,8 +22,5 @@ public class CurrencyConverterApplication implements CommandLineRunner {
 		SpringApplication.run(CurrencyConverterApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) {
-		currencyService.loadCurrencyDataFromBNB();
-	}
+
 }
