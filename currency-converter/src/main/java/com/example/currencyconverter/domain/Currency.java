@@ -1,18 +1,27 @@
-package com.example.currencyconverter.models;
+package com.example.currencyconverter.domain;
 
 import javax.persistence.*;
 
 @Entity(name = "currencies")
-
 public class Currency {
 
     @Id
-    @Column//(name = "code")
+    @Column
     private String code;
     private String name;
-    private Double reverse_rate;
     private Double rate;
     private int ratio;
+
+    public Currency(String code, String name, Double rate, int ratio) {
+        this.code = code;
+        this.name = name;
+        this.rate = rate;
+        this.ratio = ratio;
+    }
+
+    public Currency() {
+
+    }
 
 
     public int getRatio() {
@@ -33,14 +42,6 @@ public class Currency {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Double getReverse_rate() {
-        return reverse_rate;
-    }
-
-    public void setReverse_rate(Double reverse_rate) {
-        this.reverse_rate = reverse_rate;
     }
 
     public Double getRate() {

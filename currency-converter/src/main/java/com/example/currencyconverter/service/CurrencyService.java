@@ -1,8 +1,9 @@
 package com.example.currencyconverter.service;
 
-import com.example.currencyconverter.models.Currency;
-import com.example.currencyconverter.repositories.CurrencyRepository;
+import com.example.currencyconverter.domain.Currency;
+import com.example.currencyconverter.dao.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 
@@ -18,7 +19,6 @@ import javax.xml.parsers.*;
 
 @Service
 public class CurrencyService {
-
    @Autowired
    CurrencyRepository currencyRepository;
 
@@ -26,11 +26,26 @@ public class CurrencyService {
        return currencyRepository.findAll();
    }
 
+    public Double convertCurrencyFromTo(String codeFrom, String codeTo, Double amount) {
+        Currency currencyFrom = currencyRepository.findById(codeFrom).get();
+        Currency currencyTo = currencyRepository.findById(codeTo).get();
+
+        return ((amount * currencyFrom.getRate()) * currencyTo.getRatio()) / (currencyTo.getRate() * currencyFrom.getRatio());
+    }
+
    public void addCurrency(Currency currency){
        currencyRepository.save(currency);
    }
 
-    public List<Currency> getParsedCurrencies(){
+   public void loadCurrencyDataFromBNB(){
+       List<Currency> currencies = getParsedCurrencies();
+       for (Currency currency : currencies){
+           addCurrency(currency);
+       }
+       System.out.println("load....");
+   }
+
+    private List<Currency> getParsedCurrencies(){
         getCurrenciesFromBNB();
 
         List<Currency> currencyList = new ArrayList<>();
@@ -46,14 +61,12 @@ public class CurrencyService {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    Currency currency = new Currency();//CODE, NAME_, REVERSERATE, RATE to add RATIO
+                    Currency currency = new Currency();
                     currency.setName(eElement
                             .getElementsByTagName("NAME_").item(0).getTextContent());
                     currency.setCode(eElement
                             .getElementsByTagName("CODE").item(0).getTextContent());
-                    currency.setReverse_rate(Double.valueOf(eElement
-                            .getElementsByTagName("REVERSERATE").item(0).getTextContent()));
-                    currency.setRate(Double.valueOf(eElement
+                   currency.setRate(Double.valueOf(eElement
                             .getElementsByTagName("RATE").item(0).getTextContent()));
                     currency.setRatio(Integer.parseInt(eElement
                             .getElementsByTagName("RATIO").item(0).getTextContent()));
@@ -66,8 +79,7 @@ public class CurrencyService {
         return currencyList;
     }
 
-
-    private List<Currency> getCurrenciesFromBNB(){
+    private void getCurrenciesFromBNB(){
         String FILE_URL = "http://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=EN";
 
         try (BufferedInputStream in = new BufferedInputStream(new URL(FILE_URL).openStream());
@@ -80,6 +92,5 @@ public class CurrencyService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
     }
 }

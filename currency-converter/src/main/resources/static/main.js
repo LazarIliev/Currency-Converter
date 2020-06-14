@@ -6,11 +6,20 @@ form.onsubmit = function (e) {
     console.log("from code: "+fromCode);
     console.log("to code: "+toCode);
     console.log("sum: "+sumToConvert);
+    //todo validation for the input number
+    if(sumToConvert <= 0){
+        document.getElementById("convertedAmount").value = "Invalid input!";
+        return;
+    }
 
     e.preventDefault();
-    fetch("convert?codeFrom="+ fromCode+"&codeTo="+ toCode+"&amount="+sumToConvert,{
+    fetch("api/convert?codeFrom="+ fromCode+"&codeTo="+ toCode+"&amount="+sumToConvert,{
         method: "get"
     }).then( response =>{
-             console.log(response.json().then((data) =>{console.log(data)}));
+             console.log(response.json()
+                 .then((data) =>{
+                     console.log(data)
+                     document.getElementById("convertedAmount").value = data;
+                 }));
         });
 }

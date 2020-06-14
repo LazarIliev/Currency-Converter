@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,21 +9,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 </head>
 <body>
-<!--to add nav bar in which login for admin or if admin is logged in add currency-->
 <div class="container">
+    <div sec:authorize="!isAuthenticated()">
+        <a th:href="@{/login}">Log in</a></p>
+    </div>
     <div sec:authorize="isAuthenticated()">
         <button type="button" class="btn btn-default navbar-btn" > currency</button>
-        <span sec:authentication="name">U</span></b>
-        <a th:href="@{/admin/addCurrency}">Add a currency.</a> This is for admins only.</p>
+        <span sec:authentication="name"></span></b>
+        <a th:href="@{/admin/addCurrency}">Add a currency.</a></p>
+        <a th:href="@{/logout}">Log out</a></p>
     </div>
     <div class="row">
         <div class="col-md-4 mt-5">
             <form action="/convert" method="get" name="currency-convert-form" id="currency-convert-form">
                 <div class="form-group">
-                    <label for="codeFrom">From</label>
+                    <label for="codeFrom">From:</label>
                     <select class="form-control selectpicker" name="codeFrom" id="codeFrom">
                         <option value="">Select currency code from</option>
                         <option th:each="currency : ${currencies}"
@@ -33,7 +35,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="codeTo">To</label>
+                    <label for="codeTo">To:</label>
                     <select class="form-control selectpicker" id="codeTo">
                         <option value="">Select currency code to</option>
                         <option th:each="currency : ${currencies}"
@@ -44,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="currencyAmountToConvert">Sum:</label>
-                    <input type="number" id="currencyAmountToConvert">
+                    <input th:type="Double" id="currencyAmountToConvert">
                     <span th:for="currencyAmountToConvert"></span>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit form</button>
@@ -55,7 +57,7 @@
         <label>Result:</label>
         <output th:type="Double" id="convertedAmount"></output>
     </div>
-    <h1>Currency Table</h1>
+    <h1>Currencies Table</h1>
     <div class="row col-md-7 table-responsive">
         <table id="currencyTable" class="table">
             <thead>
@@ -63,7 +65,6 @@
                 <th>CODE</th>
                 <th>Name</th>
                 <th>Rate</th>
-                <th>Reverse Rate</th>
                 <th>Ratio</th>
             </tr>
             </thead>
@@ -73,7 +74,6 @@
                 <td th:text="${currency.getCode()}"></td>
                 <td th:text="${currency.getName()}"></td>
                 <td th:text="${currency.getRate()}"></td>
-                <td th:text="${currency.getReverse_rate()}"></td>
                 <td th:text="${currency.getRatio()}"></td>
             </tr>
             </tbody>

@@ -1,6 +1,5 @@
-package com.example.currencyconverter;
+package com.example.currencyconverter.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -21,15 +20,15 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/admin/addCurrency").access("hasRole('admin')").and()
-                .cors().and()
-                .csrf().disable().authorizeRequests()
+                .cors()
+                .and()
+                .csrf()
+                .disable().authorizeRequests()
                 .and()
                 .formLogin();
 
     }
 
-//      @Autowired
-//      public void configureGlobal
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
