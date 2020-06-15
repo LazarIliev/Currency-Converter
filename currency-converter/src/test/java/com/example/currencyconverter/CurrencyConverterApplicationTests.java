@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class CurrencyConverterApplicationTests {
-
+//todo xml tests and converter
 	@Test
 	void contextLoads() {
 	}

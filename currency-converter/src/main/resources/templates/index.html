@@ -17,10 +17,12 @@
         <span sec:authentication="name"></span></b>
         <a th:href="@{/admin/addCurrency}">Add a currency.</a></p>
         <button type="button" class="btn btn-default navbar-btn" >
+<!--            to make it on different view-->
             <a th:href="@{/admin/currencies/refresh}">Update all currencies from BNB rates.</a>
         </button></p>
         <a th:href="@{/logout}">Log out</a></p>
     </div>
+    <!--  to add checkbox for enable/disable js validations      -->
     <div class="row">
         <div class="col-md-4 mt-5">
             <form action="/convert" method="get" name="currency-convert-form" id="currency-convert-form">

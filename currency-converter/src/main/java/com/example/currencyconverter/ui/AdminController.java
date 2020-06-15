@@ -22,7 +22,7 @@ public class AdminController {
     @Autowired
     CurrenciesBnbLoadingService currenciesBnbLoadingService;
 
-    @GetMapping("/admin/addCurrency")
+    @GetMapping("/admin/addCurrency")//currency
     public ModelAndView addCurrency() {
         ModelAndView modelAndView = new ModelAndView("add");
         modelAndView.addObject("currencyDto", new CurrencyDto());
@@ -30,7 +30,7 @@ public class AdminController {
         return modelAndView;
     }
 
-    @PostMapping("/admin/addCurrency")
+    @PostMapping("/admin/addCurrency")//currency
     public String addCurrency(@Valid CurrencyDto currencyDto, Errors errors) {
         if (errors.hasErrors()) {
             return "add";
@@ -44,11 +44,12 @@ public class AdminController {
 
     @GetMapping("/admin/currencies/refresh")
     public String refreshCurrenciesRates(){
-        List<Currency> currencyList =  currenciesBnbLoadingService.getCurrencies();
+        Boolean currencyList =  currenciesBnbLoadingService.getCurrencies();//todo rename
 
-        for (Currency currency : currencyList){
-            currencyService.addCurrency(currency);
-        }
+        //remove
+//        for (Currency currency : currencyList){
+//            currencyService.addCurrency(currency);
+//        }
 
         return "redirect:/";
     }

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.example.currencyconverter.constants.CurrencyConverterAppConstants.XML_FILE_URL_FROM_BNB_CURRENCIES;
+
 @Service
 public class CurrenciesBnbLoadingService {
 
@@ -15,9 +17,19 @@ public class CurrenciesBnbLoadingService {
     @Autowired
     CurrenciesFromTxtFile currenciesFromTxtFile;
 
-    public List<Currency> getCurrencies() {
-        currenciesFromBnbToTxtFile.write();
+    @Autowired
+    CurrencyService currencyService;
 
-        return currenciesFromTxtFile.getCurrencies();
+    public Boolean getCurrencies() {
+        String url_path = XML_FILE_URL_FROM_BNB_CURRENCIES;
+        currenciesFromBnbToTxtFile.write();//rename more general form stream to txt file
+        //how to use xml structure without to write to file and validate
+
+        //read node and validate with dto
+        for (Currency currency : currenciesFromTxtFile.getCurrencies()){
+            currencyService.addCurrency(currency);
+        }
+
+        return true;//todo check
     }
 }
