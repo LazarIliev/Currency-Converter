@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label for="codeTo">To:</label>
-                    <select class="form-control selectpicker" id="codeTo">
+                    <select class="form-control selectpicker" name="codeTo" id="codeTo">
                         <option value="">Select currency code to</option>
                         <option th:each="currency : ${currencies}"
                                 th:value="${currency.getCode()}"
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="currencyAmountToConvert">Sum:</label>
-                    <input th:type="Double" id="currencyAmountToConvert">
+                    <input th:type="Double" name="currencyAmountToConvert" id="currencyAmountToConvert">
                     <span th:for="currencyAmountToConvert"></span>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit form</button>
@@ -55,7 +55,7 @@
     </div>
     <div class="row">
         <label>Result:</label>
-        <output th:type="Double" id="convertedAmount"></output>
+        <output th:type="Double" name="convertedAmount" id="convertedAmount"></output>
     </div>
     <h1>Currencies Table</h1>
     <div class="row col-md-7 table-responsive">
