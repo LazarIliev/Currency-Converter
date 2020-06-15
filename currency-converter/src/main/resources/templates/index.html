@@ -14,10 +14,11 @@
         <a th:href="@{/login}">Log in</a></p>
     </div>
     <div sec:authorize="isAuthenticated()">
-        <button type="button" class="btn btn-default navbar-btn" > currency</button>
         <span sec:authentication="name"></span></b>
         <a th:href="@{/admin/addCurrency}">Add a currency.</a></p>
-        <a th:href="@{/admin/currencies/refresh}">Update all currencies from BNB rates.</a></p>
+        <button type="button" class="btn btn-default navbar-btn" >
+            <a th:href="@{/admin/currencies/refresh}">Update all currencies from BNB rates.</a>
+        </button></p>
         <a th:href="@{/logout}">Log out</a></p>
     </div>
     <div class="row">
