@@ -1,4 +1,4 @@
-package com.example.currencyconverter.controller;
+package com.example.currencyconverter.api;
 
 import com.example.currencyconverter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;

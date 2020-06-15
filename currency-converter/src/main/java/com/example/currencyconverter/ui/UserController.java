@@ -1,4 +1,4 @@
-package com.example.currencyconverter.controller;
+package com.example.currencyconverter.ui;
 
 import com.example.currencyconverter.domain.Currency;
 import com.example.currencyconverter.dto.CurrencyDto;
