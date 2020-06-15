@@ -16,12 +16,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.currencyconverter.constants.CurrencyConverterAppConstants.CURRENCIES_DATA_PATH_FILE;
+
 @Service
 public class CurrenciesFromTxtFile {
 
     public List<Currency> getCurrencies() {
         List<Currency> currencyList = new ArrayList<>();
-        File file = new File("src/main/resources/currenciesData.txt");
+        File file = new File(CURRENCIES_DATA_PATH_FILE);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

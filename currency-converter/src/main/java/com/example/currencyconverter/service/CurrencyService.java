@@ -16,7 +16,7 @@ public class CurrencyService {
 
     public Double convertCurrencyFromTo(String codeFrom, String codeTo, Double amount) {
         Currency currencyFrom = currencyRepository.findById(codeFrom).get();
-        Currency currencyTo = currencyRepository.findById(codeTo).get();
+        Currency currencyTo = currencyRepository.findById(codeTo).get();//TODO IF NULL STATUS CODE
 
         return ((amount * currencyFrom.getRate()) * currencyTo.getRatio()) / (currencyTo.getRate() * currencyFrom.getRatio());
     }
