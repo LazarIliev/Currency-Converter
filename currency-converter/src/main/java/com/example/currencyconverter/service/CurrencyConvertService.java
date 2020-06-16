@@ -11,9 +11,6 @@ public class CurrencyConvertService {
     CurrencyRepository currencyRepository;
 
     public Double convertCurrencyFromTo(Currency codeFrom, Currency codeTo, Double amount) {//todo rename
-        //Currency currencyFrom = currencyRepository.findById(codeFrom).get();//todo check levs and add
-        //Currency currencyTo = currencyRepository.findById(codeTo).get();//TODO IF NULL STATUS CODE
-
-        return ((amount * codeFrom.getRate()) * codeTo.getRatio()) / (codeTo.getRate() * codeFrom.getRatio());
+        return ((amount * codeFrom.getRate()) * codeTo.getRatio()) / (codeTo.getRate() * codeFrom.getRatio());//todo math rounding
     }
 }

@@ -23,7 +23,7 @@ import java.util.Set;
 import static com.example.currencyconverter.constants.CurrencyConverterAppConstants.XML_FILE_URL_FROM_BNB_CURRENCIES;
 
 @Service
-public class CurrenciesFromBNB {//todo rename from bnb
+public class CurrenciesFromBNBService {//todo rename from bnb
 
     @Autowired
     CurrencyValidator currencyValidator;
