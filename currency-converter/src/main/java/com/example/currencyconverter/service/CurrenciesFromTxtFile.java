@@ -28,7 +28,7 @@ public class CurrenciesFromTxtFile {//todo rename from bnb
     @Autowired
     CurrencyValidator currencyValidator;
 
-    public List<Currency> getCurrencies() {
+    public List<Currency> getCurrencies() {//todo close all streams
         List<Currency> currencyList = new ArrayList<>();
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         try {

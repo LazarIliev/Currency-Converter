@@ -14,14 +14,6 @@ public class CurrencyService {
        return currencyRepository.findAll();
    }
 
-   //to move it to separate service
-    public Double convertCurrencyFromTo(String codeFrom, String codeTo, Double amount) {
-        Currency currencyFrom = currencyRepository.findById(codeFrom).get();//todo check levs and add
-        Currency currencyTo = currencyRepository.findById(codeTo).get();//TODO IF NULL STATUS CODE
-
-        return ((amount * currencyFrom.getRate()) * currencyTo.getRatio()) / (currencyTo.getRate() * currencyFrom.getRatio());
-    }
-
    public void addCurrency(Currency currency){
        currencyRepository.save(currency);
    }

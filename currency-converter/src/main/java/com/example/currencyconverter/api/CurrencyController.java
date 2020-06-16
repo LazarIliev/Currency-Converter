@@ -1,5 +1,6 @@
 package com.example.currencyconverter.api;
 
+import com.example.currencyconverter.service.CurrencyConvertService;
 import com.example.currencyconverter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CurrencyController {//CurrencyConvertResource
     @Autowired
-    CurrencyService currencyService;
+    CurrencyConvertService currencyConvertService;
 
     @GetMapping("api/convert")//api/v1/convert
     @CrossOrigin("*")
     ResponseEntity<Double> convert(@RequestParam String codeFrom, @RequestParam String codeTo, @RequestParam Double amount){
-        if (amount <= 0 ){//validate code currencies with dto
+        if (amount <= 0 ){//validate code currencies with dto and validator
             return new ResponseEntity<>((Double) null, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(currencyService.convertCurrencyFromTo(codeFrom, codeTo, amount), HttpStatus.OK);
+        return new ResponseEntity<>(currencyConvertService.convertCurrencyFromTo(codeFrom, codeTo, amount), HttpStatus.OK);
     }
 }
