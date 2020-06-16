@@ -2,85 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
-<head>
+<head th:include="/fragments/header">
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+
 
 </head>
 <body>
 <div class="container">
+    <div th:include="/fragments/admin">
+    </div>
     <div sec:authorize="!isAuthenticated()">
         <a th:href="@{/login}">Log in</a></p>
     </div>
-    <div sec:authorize="isAuthenticated()">
-        <span sec:authentication="name"></span></b>
-        <a th:href="@{/admin/addCurrency}">Add a currency.</a></p>
-        <button type="button" class="btn btn-default navbar-btn" >
-<!--            to make it on different view-->
-            <a th:href="@{/admin/currencies/refresh}">Update all currencies from BNB rates.</a>
-        </button></p>
-        <a th:href="@{/logout}">Log out</a></p>
-    </div>
     <!--  to add checkbox for enable/disable js validations      -->
-    <div class="row">
-        <div class="col-md-4 mt-5">
-            <form action="/convert" method="get" name="currency-convert-form" id="currency-convert-form">
-                <div class="form-group">
-                    <label for="codeFrom">From:</label>
-                    <select class="form-control selectpicker" name="codeFrom" id="codeFrom">
-                        <option value="">Select currency code from</option>
-                        <option th:each="currency : ${currencies}"
-                                th:value="${currency.getCode()}"
-                                th:text="${currency.getCode()}">
-                        </option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="codeTo">To:</label>
-                    <select class="form-control selectpicker" name="codeTo" id="codeTo">
-                        <option value="">Select currency code to</option>
-                        <option th:each="currency : ${currencies}"
-                                th:value="${currency.getCode()}"
-                                th:text="${currency.getCode()}">
-                        </option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="currencyAmountToConvert">Sum:</label>
-                    <input th:type="Double" type="number" name="currencyAmountToConvert" id="currencyAmountToConvert">
-                    <span th:for="currencyAmountToConvert"></span>
-                </div>
-                <button class="btn btn-primary" type="submit">Submit form</button>
-            </form>
-        </div>
-    </div>
+    <div th:include="/fragments/convert-form"></div>
     <div class="row">
         <label>Result:</label>
         <output th:type="Double" name="convertedAmount" id="convertedAmount"></output>
     </div>
-    <h1>Currencies Table</h1>
-    <div class="row col-md-7 table-responsive">
-        <table id="currencyTable" class="table">
-            <thead>
-            <tr>
-                <th>CODE</th>
-                <th>Name</th>
-                <th>Rate</th>
-                <th>Ratio</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="currency, rowStat: ${currencies}"
-                th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
-                <td th:text="${currency.getCode()}"></td>
-                <td th:text="${currency.getName()}"></td>
-                <td th:text="${currency.getRate()}"></td>
-                <td th:text="${currency.getRatio()}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    <div th:include="/fragments/currencies-table"></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
