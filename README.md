@@ -14,6 +14,11 @@ IntelliJ IDEA 2020.1
 Maven 3.6
 MySQL 8
 
+You have to override environment parameters into your IDE for your database url, username and password
+spring.datasource.url
+spring.datasource.username
+spring.datasource.password
+
 What things you need to install the software and how to install them
 
 ```

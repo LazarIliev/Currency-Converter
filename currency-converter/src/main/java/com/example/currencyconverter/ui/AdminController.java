@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class AdminController {
@@ -43,13 +42,8 @@ public class AdminController {
     }
 
     @GetMapping("/admin/currencies/refresh")
-    public String refreshCurrenciesRates(){
-        Boolean currencyList =  currenciesBnbLoadingService.getCurrencies();//todo rename
-
-        //remove
-//        for (Currency currency : currencyList){
-//            currencyService.addCurrency(currency);
-//        }
+    public String refreshCurrenciesRates() {
+        currenciesBnbLoadingService.getCurrencies();//todo rename
 
         return "redirect:/";
     }
