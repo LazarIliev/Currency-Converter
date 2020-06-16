@@ -43,7 +43,7 @@ public class AdminController {
 
     @GetMapping("/admin/currencies/refresh")
     public String refreshCurrenciesRates() {
-        currenciesBnbLoadingService.getCurrencies();//todo rename
+        currenciesBnbLoadingService.reloadCurrencies();//todo rename
 
         return "redirect:/";
     }

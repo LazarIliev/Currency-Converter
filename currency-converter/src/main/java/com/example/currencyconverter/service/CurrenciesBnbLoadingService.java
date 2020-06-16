@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 public class CurrenciesBnbLoadingService {
 
     @Autowired
-    CurrenciesFromTxtFile currenciesFromTxtFile;
+    CurrenciesFromBNB currenciesFromBNB;
 
     @Autowired
     CurrencyService currencyService;
 
-    public void getCurrencies() {//todo rename reloadCurrencies
-        for (Currency currency : currenciesFromTxtFile.getCurrencies()){//currencies from bnb
+    public void reloadCurrencies() {//todo rename reloadCurrencies
+        for (Currency currency : currenciesFromBNB.getCurrencies()){//currencies from bnb
             currencyService.addCurrency(currency);
         }
     }
