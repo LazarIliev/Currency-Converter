@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CurrenciesBnbLoadingService {
+public class CurrenciesLoadingService {
 
     @Autowired
     CurrenciesFromBNBService currenciesFromBNBService;
@@ -13,7 +13,7 @@ public class CurrenciesBnbLoadingService {
     @Autowired
     CurrencyService currencyService;
 
-    public void reloadCurrencies() {//todo rename reloadCurrencies
+    public void refreshCurrencies() {
         for (Currency currency : currenciesFromBNBService.getCurrencies()){//currencies from bnb
             currencyService.addCurrency(currency);
         }

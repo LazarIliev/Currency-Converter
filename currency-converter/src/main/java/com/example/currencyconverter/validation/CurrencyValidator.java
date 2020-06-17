@@ -9,8 +9,6 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import javax.validation.executable.ExecutableValidator;
-import javax.validation.metadata.BeanDescriptor;
 import java.util.Set;
 
 @Service
@@ -22,7 +20,7 @@ public class CurrencyValidator  {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
-
+//todo to make generic validation
     //ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
     //		Validator validator = factory.getValidator();
     //		Set<ConstraintViolation<CurrencyDto>> violations = validator.validate(currencyDto);

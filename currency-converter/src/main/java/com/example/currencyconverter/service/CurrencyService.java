@@ -21,6 +21,11 @@ public class CurrencyService {
    }
 
    public void addCurrency(Currency currency){
+
        currencyRepository.save(currency);
    }
+
+   //todo delete method
+
+    //todo update method  invoke addCurrency
 }

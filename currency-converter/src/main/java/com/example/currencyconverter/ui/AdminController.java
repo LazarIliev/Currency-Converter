@@ -2,7 +2,7 @@ package com.example.currencyconverter.ui;
 
 import com.example.currencyconverter.domain.Currency;
 import com.example.currencyconverter.dto.CurrencyDto;
-import com.example.currencyconverter.service.CurrenciesBnbLoadingService;
+import com.example.currencyconverter.service.CurrenciesLoadingService;
 import com.example.currencyconverter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,12 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
-public class AdminController {
+public class AdminController {///admin/currency/delete
     @Autowired
     CurrencyService currencyService;
 
     @Autowired
-    CurrenciesBnbLoadingService currenciesBnbLoadingService;
+    CurrenciesLoadingService currenciesLoadingService;
 
     @GetMapping("/admin/addCurrency")//todo to replace addCurrency with currency
     public ModelAndView addCurrency() {
@@ -43,7 +43,7 @@ public class AdminController {
 
     @GetMapping("/admin/currencies/refresh")
     public String refreshCurrenciesRates() {
-        currenciesBnbLoadingService.reloadCurrencies();//todo rename
+        currenciesLoadingService.refreshCurrencies();//todo rename
 
         return "redirect:/";
     }
