@@ -41,7 +41,7 @@ public class CurrenciesFromBNBService {//todo rename from bnb
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    Currency currency = new Currency();
+                    Currency currency = new Currency();//todo
                     currency.setName(eElement
                             .getElementsByTagName("NAME_").item(0).getTextContent());
                     currency.setCode(eElement

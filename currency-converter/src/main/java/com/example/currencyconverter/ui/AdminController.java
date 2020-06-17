@@ -34,7 +34,7 @@ public class AdminController {
         if (errors.hasErrors()) {
             return "add";
         }
-        Currency currency = new Currency(
+        Currency currency = new Currency(//todo
                 currencyDto.getCode(), currencyDto.getName(),
                 currencyDto.getRate(), currencyDto.getRatio());
         currencyService.addCurrency(currency);

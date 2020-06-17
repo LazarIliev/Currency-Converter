@@ -1,13 +1,28 @@
 package com.example.currencyconverter.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/*
+@NoArgsConstructor annotation for generating a constructor with no parameters
+*/
+@NoArgsConstructor
+/*
+@AllArgsConstructor annotation for generating a constructor
+with 1 parameter for each field
+*/
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity(name = "currencies")
 public class Currency {
-
     @Id
     @Column
     @NotNull
@@ -21,48 +36,4 @@ public class Currency {
     @NotNull
     @Min(value = 1L, message = "The value must be positive")
     private int ratio;
-
-    public Currency(String code, String name, Double rate, int ratio) {
-        this.code = code;
-        this.name = name;
-        this.rate = rate;
-        this.ratio = ratio;
-    }
-
-    public Currency() {
-
-    }
-
-
-    public int getRatio() {
-        return ratio;
-    }
-
-    public void setRatio(int ratio) {
-        this.ratio = ratio;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getRate() {
-        return rate;
-    }
-
-    public void setRate(Double rate) {
-        this.rate = rate;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 }

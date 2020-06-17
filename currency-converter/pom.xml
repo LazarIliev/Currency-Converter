@@ -73,6 +73,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<!--		to add it into the readme.md file-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
