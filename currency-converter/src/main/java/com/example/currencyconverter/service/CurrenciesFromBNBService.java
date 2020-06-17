@@ -2,6 +2,7 @@ package com.example.currencyconverter.service;
 
 import com.example.currencyconverter.domain.Currency;
 import com.example.currencyconverter.validation.CurrencyValidator;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
@@ -15,6 +16,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,18 +24,19 @@ import java.util.Set;
 
 import static com.example.currencyconverter.constants.CurrencyConverterAppConstants.XML_FILE_URL_FROM_BNB_CURRENCIES;
 
+@Slf4j
 @Service
 public class CurrenciesFromBNBService {//todo rename from bnb
 
     @Autowired
     CurrencyValidator currencyValidator;
 
-    public List<Currency> getCurrencies() {//todo close all streams
+    public List<Currency> getCurrencies() {
         List<Currency> currencyList = new ArrayList<>();
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        try {
+        try(InputStream urlBNBStream = new URL(XML_FILE_URL_FROM_BNB_CURRENCIES).openStream()) {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(new URL(XML_FILE_URL_FROM_BNB_CURRENCIES).openStream());
+            Document doc = dBuilder.parse(urlBNBStream);
             doc.getDocumentElement().normalize();
             NodeList nList = doc.getElementsByTagName("ROW");
             //skip first and last
@@ -52,14 +55,15 @@ public class CurrenciesFromBNBService {//todo rename from bnb
                         currency.setRatio(Integer.parseInt(eElement
                                 .getElementsByTagName("RATIO").item(0).getTextContent()));
                     }catch (NumberFormatException exception){
-                       //todo
+                        log.info(exception.getMessage(), exception);
                     }
 
                     Set<ConstraintViolation<Currency>> violations = currencyValidator.validate(currency);
                     if (violations.size() != 0){
-                        //todo log the violations and skip it
+                        //log the violations and skip the invalid currency
                         for (ConstraintViolation violation : violations) {
                             System.out.println(violation);
+                            log.info(violation.getMessage());
                         }
                         continue;
                     }

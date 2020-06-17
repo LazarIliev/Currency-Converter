@@ -21,7 +21,7 @@ public class AdminController {
     @Autowired
     CurrenciesBnbLoadingService currenciesBnbLoadingService;
 
-    @GetMapping("/admin/addCurrency")//currency
+    @GetMapping("/admin/addCurrency")//todo to replace addCurrency with currency
     public ModelAndView addCurrency() {
         ModelAndView modelAndView = new ModelAndView("add");
         modelAndView.addObject("currencyDto", new CurrencyDto());
@@ -34,7 +34,7 @@ public class AdminController {
         if (errors.hasErrors()) {
             return "add";
         }
-        Currency currency = new Currency(//todo
+        Currency currency = new Currency(
                 currencyDto.getCode(), currencyDto.getName(),
                 currencyDto.getRate(), currencyDto.getRatio());
         currencyService.addCurrency(currency);
