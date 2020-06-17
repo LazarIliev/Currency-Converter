@@ -19,10 +19,13 @@ Spring Security for admin administration
 Thymeleaf for view templating
 
 
-You have to override environment parameters into your IDE for your database url, username and password
-spring.datasource.url
-spring.datasource.username
-spring.datasource.password
+You have to set yours environment varaibles into your IDE for your database url, username and password
+and to use it into application.properties file of the project
+```
+spring.datasource.url=${MYSQL_URL}
+spring.datasource.username=${MYSQL_USER}
+spring.datasource.password=${MYSQL_PASSWORD}
+```
 
 What things you need to install the software and how to install them
 
