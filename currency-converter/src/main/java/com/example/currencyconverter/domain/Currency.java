@@ -32,7 +32,7 @@ public class Currency {
     @Size(min = 5, max = 45, message = "Full name should be between 5 and 45 alphabet symbols")
     private String name;
     @NotNull
-    private Double rate;
+    private Double rate;//todo decimal
     @NotNull
     @Min(value = 1L, message = "The value must be positive")
     private int ratio;
