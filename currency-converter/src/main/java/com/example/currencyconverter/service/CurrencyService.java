@@ -25,6 +25,9 @@ public class CurrencyService {
        currencyRepository.save(currency);
    }
 
+   public void delete(String code){
+       currencyRepository.deleteById(code);
+   }
    //todo delete method
 
     //todo update method  invoke addCurrency

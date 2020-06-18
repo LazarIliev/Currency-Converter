@@ -16,7 +16,12 @@
         <label>Result:</label>
         <output th:type="Double" name="convertedAmount" id="convertedAmount"></output>
     </div>
-    <div th:include="/fragments/currencies-table"></div>
+    <div sec:authorize="!isAuthenticated()">
+        <div th:include="/fragments/currencies-table"></div>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <div th:include="/fragments/currencies-admin-table"></div>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

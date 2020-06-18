@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,6 +45,13 @@ public class AdminController {///admin/currency/delete
     @GetMapping("/admin/currencies/refresh")
     public String refreshCurrenciesRates() {
         currenciesLoadingService.refreshCurrencies();//todo rename
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/admin/currency/delete/{code}")
+    public String deleteCurrency(@PathVariable String code){
+        currencyService.delete(code);
 
         return "redirect:/";
     }

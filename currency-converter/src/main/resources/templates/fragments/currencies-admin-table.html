@@ -1,0 +1,24 @@
+<h1>Currencies Table</h1>
+<div class="row col-md-7 table-responsive">
+    <table id="currencyTable" class="table">
+        <thead>
+        <tr>
+            <th>CODE</th>
+            <th>Name</th>
+            <th>Rate</th>
+            <th>Ratio</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="currency, rowStat: ${currencies}"
+            th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+            <td  th:text="${currency.getCode()}"></td>
+            <td th:text="${currency.getName()}"></td>
+            <td th:text="${currency.getRate()}"></td>
+            <td th:text="${currency.getRatio()}"></td>
+            <td><button class="btn btn-primary"><a th:href="@{/admin/currency/delete/{code}(code=${currency.getCode()})}">Delete</a></button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
