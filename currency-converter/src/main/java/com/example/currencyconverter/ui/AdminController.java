@@ -4,6 +4,7 @@ import com.example.currencyconverter.domain.Currency;
 import com.example.currencyconverter.dto.CurrencyDto;
 import com.example.currencyconverter.service.CurrenciesLoadingService;
 import com.example.currencyconverter.service.CurrencyService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,8 @@ public class AdminController {///admin/currency/delete
 
     @Autowired
     CurrenciesLoadingService currenciesLoadingService;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @GetMapping("/admin/addCurrency")//todo to replace addCurrency with currency
     public ModelAndView addCurrency() {
@@ -41,9 +44,7 @@ public class AdminController {///admin/currency/delete
             model.addAttribute("messageCodeExist", messageExistCode);
             return "add";//todo to attach message if the case is that currency already exist
         }
-        Currency currency = new Currency(
-                currencyDto.getCode(), currencyDto.getName(),
-                currencyDto.getRate(), currencyDto.getRatio());
+        Currency currency = convertToEntity(currencyDto);
         currencyService.addCurrency(currency);
 
         return "redirect:/";
@@ -72,13 +73,17 @@ public class AdminController {///admin/currency/delete
         return modelAndView;
     }
 
-    @PostMapping("/admin/currency/update/{code}")//@PathVariable String code,
-    public String updateCurrency( @Valid Currency currency, Errors errors, Model model){//todo mapper
+    @PostMapping("/admin/currency/update/{code}")
+    public String updateCurrency(@Valid CurrencyDto currencyDto, Errors errors){
         if (errors.hasErrors()){
             return "update";
         }
+        Currency currency = convertToEntity(currencyDto);
         currencyService.addCurrency(currency);
-
         return "redirect:/";
+    }
+
+    private Currency convertToEntity(CurrencyDto currencyDto){
+        return modelMapper.map(currencyDto, Currency.class);
     }
 }
