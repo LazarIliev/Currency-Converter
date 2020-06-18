@@ -1,4 +1,4 @@
-<form th:action="@{/admin/addCurrency}" method="post" th:object="${currencyDto}">
+<form th:action="@{/admin/currency/update/{code}(code=${currency.getCode()})}" method="post" th:object="${currency}">
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError">
             Please correct the problems below and resubmit.
@@ -6,11 +6,8 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputEmail4">Code</label>
-            <input th:field="*{code}" type="text" class="form-control" id="inputEmail4" placeholder="Currency Code">
-            <span class="validationError"
-                  th:if="${#fields.hasErrors('code')}"
-                  th:errors="*{code}">Code error</span>
+            <label >Currency Code:</label>
+            <label th:field="*{code}" th:text="*{code}"></label>
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">Name</label>
@@ -34,5 +31,5 @@
               th:if="${#fields.hasErrors('ratio')}"
               th:errors="*{ratio}">Rate error</span>
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>

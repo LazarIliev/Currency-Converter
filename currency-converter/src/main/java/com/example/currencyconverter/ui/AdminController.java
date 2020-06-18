@@ -6,6 +6,7 @@ import com.example.currencyconverter.service.CurrenciesLoadingService;
 import com.example.currencyconverter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,15 +32,20 @@ public class AdminController {///admin/currency/delete
     }
 
     @PostMapping("/admin/addCurrency")//currency
-    public String addCurrency(@Valid CurrencyDto currencyDto, Errors errors) {
+    public String addCurrency(@Valid CurrencyDto currencyDto, Errors errors, Model model) {
+        String messageExistCode = "";
+        model.addAttribute("messageCodeExist", messageExistCode);
         if (errors.hasErrors() || currencyService.isCurrencyExistByCode(currencyDto.getCode())) {
             //errors.
+            messageExistCode = "Currency code already exist!";
+            model.addAttribute("messageCodeExist", messageExistCode);
             return "add";//todo to attach message if the case is that currency already exist
         }
         Currency currency = new Currency(
                 currencyDto.getCode(), currencyDto.getName(),
                 currencyDto.getRate(), currencyDto.getRatio());
         currencyService.addCurrency(currency);
+
         return "redirect:/";
     }
 
@@ -53,6 +59,25 @@ public class AdminController {///admin/currency/delete
     @GetMapping("/admin/currency/delete/{code}")
     public String deleteCurrency(@PathVariable String code){
         currencyService.delete(code);
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/admin/currency/update/{code}")
+    public ModelAndView updateCurrency(@PathVariable String code){
+        Currency currency = currencyService.getByCode(code).get();
+        ModelAndView modelAndView = new ModelAndView("update");
+        modelAndView.addObject("currency", currency);
+
+        return modelAndView;
+    }
+
+    @PostMapping("/admin/currency/update/{code}")//@PathVariable String code,
+    public String updateCurrency( @Valid Currency currency, Errors errors, Model model){//todo mapper
+        if (errors.hasErrors()){
+            return "update";
+        }
+        currencyService.addCurrency(currency);
 
         return "redirect:/";
     }

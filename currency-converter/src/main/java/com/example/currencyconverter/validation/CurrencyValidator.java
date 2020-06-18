@@ -13,7 +13,6 @@ import java.util.Set;
 
 @Service
 public class CurrencyValidator  {
-
     private Validator validator;
 
     public CurrencyValidator() {

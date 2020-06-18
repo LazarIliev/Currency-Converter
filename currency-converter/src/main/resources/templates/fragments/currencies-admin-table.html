@@ -8,6 +8,7 @@
             <th>Rate</th>
             <th>Ratio</th>
             <th>Delete</th>
+            <th>Update</th>
         </tr>
         </thead>
         <tbody>
@@ -17,7 +18,8 @@
             <td th:text="${currency.getName()}"></td>
             <td th:text="${currency.getRate()}"></td>
             <td th:text="${currency.getRatio()}"></td>
-            <td><button class="btn btn-primary"><a th:href="@{/admin/currency/delete/{code}(code=${currency.getCode()})}">Delete</a></button></td>
+            <td><button class="btn btn-danger"><a th:href="@{/admin/currency/delete/{code}(code=${currency.getCode()})}">Delete</a></button></td>
+            <td><button class="btn btn-danger"><a th:href="@{/admin/currency/update/{code}(code=${currency.getCode()})}">Update</a></button></td>
         </tr>
         </tbody>
     </table>
