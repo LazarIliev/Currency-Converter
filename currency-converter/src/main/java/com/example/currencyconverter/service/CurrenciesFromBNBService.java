@@ -46,7 +46,6 @@ public class CurrenciesFromBNBService {
     private boolean isValidCurrency(Currency currency) {
         Set<ConstraintViolation<Currency>> violations = currencyValidator.validate(currency);
         if (violations.size() != 0) {
-            //log the violations
             for (ConstraintViolation violation : violations) {
                 System.out.println(violation);
                 log.info(violation.getMessage());

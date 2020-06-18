@@ -14,7 +14,7 @@ public class CurrenciesLoadingService {
     CurrencyService currencyService;
 
     public void refreshCurrencies() {
-        for (Currency currency : currenciesFromBNBService.getCurrencies()){//currencies from bnb
+        for (Currency currency : currenciesFromBNBService.getCurrencies()){
             currencyService.addCurrency(currency);
         }
     }

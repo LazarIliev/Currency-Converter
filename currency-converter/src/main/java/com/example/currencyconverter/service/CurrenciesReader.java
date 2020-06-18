@@ -11,10 +11,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-import static com.example.currencyconverter.constants.CurrencyConverterAppConstants.XML_FILE_URL_FROM_BNB_CURRENCIES;
-
 @Service
 public class CurrenciesReader {
+    static final String XML_FILE_URL_FROM_BNB_CURRENCIES = "http://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=EN";
 
     public Document readExternalStreamAsDocument(){
         Document doc = null;

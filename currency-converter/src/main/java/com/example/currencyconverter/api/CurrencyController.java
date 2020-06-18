@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-public class CurrencyController {//CurrencyConvertRest
+public class CurrencyController {//todo CurrencyConvertRest
     @Autowired
     CurrencyConvertService currencyConvertService;
     @Autowired
@@ -31,7 +31,6 @@ public class CurrencyController {//CurrencyConvertRest
         if (currencyFrom.isEmpty() || currencyTo.isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
-
         return new ResponseEntity<>(currencyConvertService.convertCurrencyFromTo(currencyFrom.get(), currencyTo.get(), amount), HttpStatus.OK);
     }
 }

@@ -20,7 +20,6 @@ import javax.validation.Valid;
 public class AdminController {///admin/currency/delete
     @Autowired
     CurrencyService currencyService;
-
     @Autowired
     CurrenciesLoadingService currenciesLoadingService;
     @Autowired
@@ -30,37 +29,32 @@ public class AdminController {///admin/currency/delete
     public ModelAndView addCurrency() {
         ModelAndView modelAndView = new ModelAndView("add");
         modelAndView.addObject("currencyDto", new CurrencyDto());
-
         return modelAndView;
     }
 
-    @PostMapping("/admin/addCurrency")//currency
+    @PostMapping("/admin/addCurrency")
     public String addCurrency(@Valid CurrencyDto currencyDto, Errors errors, Model model) {
         String messageExistCode = "";
         model.addAttribute("messageCodeExist", messageExistCode);
         if (errors.hasErrors() || currencyService.isCurrencyExistByCode(currencyDto.getCode())) {
-            //errors.
             messageExistCode = "Currency code already exist!";
             model.addAttribute("messageCodeExist", messageExistCode);
-            return "add";//todo to attach message if the case is that currency already exist
+            return "add";
         }
         Currency currency = convertToEntity(currencyDto);
         currencyService.addCurrency(currency);
-
         return "redirect:/";
     }
 
     @GetMapping("/admin/currencies/refresh")
     public String refreshCurrenciesRates() {
-        currenciesLoadingService.refreshCurrencies();//todo rename
-
+        currenciesLoadingService.refreshCurrencies();
         return "redirect:/";
     }
 
     @GetMapping("/admin/currency/delete/{code}")
     public String deleteCurrency(@PathVariable String code){
         currencyService.delete(code);
-
         return "redirect:/";
     }
 
@@ -69,7 +63,6 @@ public class AdminController {///admin/currency/delete
         Currency currency = currencyService.getByCode(code).get();
         ModelAndView modelAndView = new ModelAndView("update");
         modelAndView.addObject("currency", currency);
-
         return modelAndView;
     }
 

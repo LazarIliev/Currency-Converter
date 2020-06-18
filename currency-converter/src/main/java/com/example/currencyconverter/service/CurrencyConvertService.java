@@ -13,10 +13,10 @@ public class CurrencyConvertService {
     public String convertCurrencyFromTo(Currency currencyFrom, Currency currencyTo, Double amount) {//todo rename
         Double fromCurrencyAmount = amount;
         Double toCurrencyFactor = 1d;
-        if(!currencyFrom.getCode().equals("BGN")){
+        if (!currencyFrom.getCode().equals("BGN")) {
             fromCurrencyAmount = getFromCurrencyAmount(currencyFrom, currencyTo, amount);
         }
-        if (!currencyTo.getCode().equals("BGN")){
+        if (!currencyTo.getCode().equals("BGN")) {
             toCurrencyFactor = getToCurrencyFactor(currencyFrom, currencyTo);
         }
         df2.setRoundingMode(RoundingMode.DOWN);
@@ -24,7 +24,7 @@ public class CurrencyConvertService {
     }
 
     private double getToCurrencyFactor(Currency codeFrom, Currency codeTo) {
-        return codeTo.getRate()*codeFrom.getRatio();
+        return codeTo.getRate() * codeFrom.getRatio();
     }
 
     private double getFromCurrencyAmount(Currency codeFrom, Currency codeTo, Double amount) {

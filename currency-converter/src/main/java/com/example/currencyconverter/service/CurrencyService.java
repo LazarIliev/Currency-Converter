@@ -21,7 +21,6 @@ public class CurrencyService {
    }
 
    public void addCurrency(Currency currency){
-
        currencyRepository.save(currency);
    }
 
@@ -32,7 +31,4 @@ public class CurrencyService {
    public boolean isCurrencyExistByCode(String code){
        return currencyRepository.existsById(code);
    }
-   //todo delete method
-
-    //todo update method  invoke addCurrency
 }

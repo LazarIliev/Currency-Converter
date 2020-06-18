@@ -17,6 +17,16 @@ MySQL 8
 Lombok for generating auto getters, setters and constructors
 Spring Security for admin administration
 Thymeleaf for view templating
+ModelMapper import org.modelmapper.ModelMapper;
+
+
+```
+<dependency>
+    <groupId>org.modelmapper</groupId>
+    <artifactId>modelmapper</artifactId>
+    <version>2.3.5</version>
+</dependency>
+```
 
 
 You have to set yours environment varaibles into your IDE for your database url, username and password
