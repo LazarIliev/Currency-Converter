@@ -22,14 +22,14 @@ public class CurrencyController {//CurrencyConvertResource
 
     @GetMapping("api/convert")//api/v1/convert
     @CrossOrigin("*")
-    ResponseEntity<Double> convert(@RequestParam String codeFrom, @RequestParam String codeTo, @RequestParam Double amount){
+    ResponseEntity<String> convert(@RequestParam String codeFrom, @RequestParam String codeTo, @RequestParam Double amount){
         if (amount <= 0 ){
-            return new ResponseEntity<>((Double) null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>( null, HttpStatus.BAD_REQUEST);
         }
         Optional<Currency> currencyFrom = currencyService.getByCode(codeFrom);
         Optional<Currency> currencyTo = currencyService.getByCode(codeTo);
         if (currencyFrom.isEmpty() || currencyTo.isEmpty()){
-            return new ResponseEntity<>((Double) null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(currencyConvertService.convertCurrencyFromTo(currencyFrom.get(), currencyTo.get(), amount), HttpStatus.OK);
