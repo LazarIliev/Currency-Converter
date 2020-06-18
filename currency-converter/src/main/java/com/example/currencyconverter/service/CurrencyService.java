@@ -28,6 +28,10 @@ public class CurrencyService {
    public void delete(String code){
        currencyRepository.deleteById(code);
    }
+
+   public boolean isCurrencyExistByCode(String code){
+       return currencyRepository.existsById(code);
+   }
    //todo delete method
 
     //todo update method  invoke addCurrency

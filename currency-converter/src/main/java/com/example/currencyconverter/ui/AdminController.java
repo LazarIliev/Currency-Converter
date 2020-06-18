@@ -32,8 +32,9 @@ public class AdminController {///admin/currency/delete
 
     @PostMapping("/admin/addCurrency")//currency
     public String addCurrency(@Valid CurrencyDto currencyDto, Errors errors) {
-        if (errors.hasErrors()) {
-            return "add";
+        if (errors.hasErrors() || currencyService.isCurrencyExistByCode(currencyDto.getCode())) {
+            //errors.
+            return "add";//todo to attach message if the case is that currency already exist
         }
         Currency currency = new Currency(
                 currencyDto.getCode(), currencyDto.getName(),
