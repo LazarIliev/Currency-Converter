@@ -15,7 +15,7 @@ public class CurrencyConverterApplication {
 //					 config
 //					 validation,model?
 //					 exceptions
-	//todo error page
+	//todo error
 @Bean
 public ModelMapper modelMapper() {
 	return new ModelMapper();
