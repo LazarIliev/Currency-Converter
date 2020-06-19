@@ -29,7 +29,7 @@ public class AdminController {///admin/currency/delete
     public ModelAndView addCurrency() {
         ModelAndView modelAndView = new ModelAndView("add");
         modelAndView.addObject("currencyDto", new CurrencyDto());
-        return modelAndView;
+        return modelAndView;//todo stay
     }
 
     @PostMapping("/admin/addCurrency")
@@ -44,7 +44,7 @@ public class AdminController {///admin/currency/delete
         Currency currency = convertToEntity(currencyDto);
         currencyService.addCurrency(currency);
         return "redirect:/";
-    }
+    }//todo remove
 
     @GetMapping("/admin/currencies/refresh")
     public String refreshCurrenciesRates() {
@@ -56,7 +56,7 @@ public class AdminController {///admin/currency/delete
     public String deleteCurrency(@PathVariable String code){
         currencyService.delete(code);
         return "redirect:/";
-    }
+    }//todo remove
 
     @GetMapping("/admin/currency/update/{code}")
     public ModelAndView updateCurrency(@PathVariable String code){
