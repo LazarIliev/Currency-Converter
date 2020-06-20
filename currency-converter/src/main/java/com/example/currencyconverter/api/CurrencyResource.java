@@ -6,21 +6,18 @@ import com.example.currencyconverter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-public class CurrencyController {//todo CurrencyConvertRest
+public class CurrencyResource {
     @Autowired
     CurrencyConvertService currencyConvertService;
     @Autowired
     CurrencyService currencyService;
 
-    @GetMapping("api/convert")// api/v1/convert
+    @GetMapping("api/convert")
     @CrossOrigin("*")
     ResponseEntity<String> convert(@RequestParam String codeFrom, @RequestParam String codeTo, @RequestParam Double amount) {
         if (amount <= 0) {

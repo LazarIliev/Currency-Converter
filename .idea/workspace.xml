@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="78d1d1ad-a6ed-4d43-9ade-eb93c7e0e35b" name="Default Changelist" comment="" />
+    <list default="true" id="78d1d1ad-a6ed-4d43-9ade-eb93c7e0e35b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_2_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/CurrencyConverterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/CurrencyConverterApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/api/CurrencyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/api/CurrencyResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/security/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/security/WebSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/ui/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/ui/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/currency-add-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/currency-add-form.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="rest-api" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1dJROQJiW4m2sRm6t5wucKZKk5C" />
@@ -18,18 +51,71 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
-    <configuration name="CurrencyConverterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <component name="RunManager" selected="Spring Boot.CurrencyConverterApplication">
+    <configuration name="CurrencyConverterApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="currency-converter" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.currencyconverter.CurrencyConverterApplication" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.currencyconverter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.currencyconverter" />
+      <option name="MAIN_CLASS_NAME" value="com.example.currencyconverter.CurrencyConverterApplicationTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <envs>
+        <env name="MYSQL_URL" value="jdbc:mysql://localhost:3306/currency_converter?useSSL=false" />
+        <env name="MYSQL_USER" value="root" />
+        <env name="MYSQL_PASSWORD" value="G9xqAupUe8Y5mfpz" />
+      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CurrencyConverterApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="currency-converter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.currencyconverter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.currencyconverter" />
+      <option name="MAIN_CLASS_NAME" value="com.example.currencyconverter.CurrencyConverterApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CurrencyConverterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="currency-converter" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.currencyconverter.CurrencyConverterApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <envs>
+        <env name="MYSQL_URL" value="jdbc:mysql://localhost:3306/currency_converter?useSSL=false" />
+        <env name="MYSQL_USER" value="root" />
+        <env name="MYSQL_PASSWORD" value="G9xqAupUe8Y5mfpz" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.CurrencyConverterApplication" />
+        <item itemvalue="JUnit.CurrencyConverterApplicationTests" />
+        <item itemvalue="JUnit.CurrencyConverterApplicationTests.contextLoads" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -42,10 +128,22 @@
       <option name="presentableId" value="Default" />
       <updated>1592141176753</updated>
       <workItem from="1592141178324" duration="46000" />
+      <workItem from="1592637846671" duration="1017000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

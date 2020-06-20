@@ -12,10 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("com.example.currencyconverter.dao")
 @EntityScan("com.example.currencyconverter.domain")
 public class CurrencyConverterApplication {
-//					 config
-//					 validation,model?
-//					 exceptions
-	//todo error
+
 @Bean
 public ModelMapper modelMapper() {
 	return new ModelMapper();

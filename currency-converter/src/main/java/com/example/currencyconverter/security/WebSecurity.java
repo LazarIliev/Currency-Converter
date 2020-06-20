@@ -28,7 +28,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .formLogin();
 
     }
-
+//todo
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()

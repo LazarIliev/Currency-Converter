@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
-public class AdminController {///admin/currency/delete
+public class AdminController {
     @Autowired
     CurrencyService currencyService;
     @Autowired
@@ -25,14 +25,14 @@ public class AdminController {///admin/currency/delete
     @Autowired
     private ModelMapper modelMapper;
 
-    @GetMapping("/admin/addCurrency")//todo to replace addCurrency with currency
+    @GetMapping("/admin/currency")
     public ModelAndView addCurrency() {
         ModelAndView modelAndView = new ModelAndView("add");
         modelAndView.addObject("currencyDto", new CurrencyDto());
-        return modelAndView;//todo stay
+        return modelAndView;
     }
 
-    @PostMapping("/admin/addCurrency")
+    @PostMapping("/admin/currency")
     public String addCurrency(@Valid CurrencyDto currencyDto, Errors errors, Model model) {
         String messageExistCode = "";
         model.addAttribute("messageCodeExist", messageExistCode);
@@ -44,7 +44,7 @@ public class AdminController {///admin/currency/delete
         Currency currency = convertToEntity(currencyDto);
         currencyService.addCurrency(currency);
         return "redirect:/";
-    }//todo remove
+    }
 
     @GetMapping("/admin/currencies/refresh")
     public String refreshCurrenciesRates() {
@@ -56,7 +56,7 @@ public class AdminController {///admin/currency/delete
     public String deleteCurrency(@PathVariable String code){
         currencyService.delete(code);
         return "redirect:/";
-    }//todo remove
+    }
 
     @GetMapping("/admin/currency/update/{code}")
     public ModelAndView updateCurrency(@PathVariable String code){

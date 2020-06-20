@@ -1,4 +1,4 @@
-<form th:action="@{/admin/addCurrency}" method="post" th:object="${currencyDto}">
+<form th:action="@{/admin/currency}" method="post" th:object="${currencyDto}">
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError">
             Please correct the problems below and resubmit.
