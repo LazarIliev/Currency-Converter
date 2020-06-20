@@ -13,6 +13,7 @@ import java.net.URL;
 
 @Service
 public class CurrenciesReader {
+    //todo to make environment var
     private static final String XML_FILE_URL_FROM_BNB_CURRENCIES = "http://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=EN";
 
     public Document readExternalStreamAsDocument(){

@@ -13,7 +13,7 @@ public class CurrenciesLoadingService {
     @Autowired
     CurrencyService currencyService;
 
-    public void refreshCurrencies() {
+    public void refreshCurrencies() {//todo rename load
         for (Currency currency : currenciesFromBNBService.getCurrencies()){
             currencyService.addCurrency(currency);
         }

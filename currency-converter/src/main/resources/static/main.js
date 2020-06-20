@@ -7,7 +7,6 @@ form.onsubmit = function (e) {
     console.log("from code: "+fromCode);
     console.log("to code: "+toCode);
     console.log("sum: "+sumToConvert);
-    //todo validation for the input number
     if(sumToConvert <= 0 || fromCode === "" || toCode === ""){
         document.getElementById("convertedAmount").value = "Invalid input!";
         return;

@@ -19,14 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78d1d1ad-a6ed-4d43-9ade-eb93c7e0e35b" name="Default Changelist" comment="CurrencyDto.java update with annotation to validate only positive rates">
+    <list default="true" id="78d1d1ad-a6ed-4d43-9ade-eb93c7e0e35b" name="Default Changelist" comment="All magic strings from services made on constants &#10;&#10;UserController renamed to IndexController">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/security/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/security/WebSecurity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrenciesFromBNBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrenciesFromBNBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrenciesLoadingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrenciesLoadingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrenciesReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrenciesReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrencyConvertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrencyConvertService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrencyParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/service/CurrencyParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/ui/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/ui/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/ui/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/ui/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/static/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/static/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/currencies-admin-table.html" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/currencies-admin-table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/currency-update-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/currency-update-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +135,7 @@
       <option name="presentableId" value="Default" />
       <updated>1592141176753</updated>
       <workItem from="1592141178324" duration="46000" />
-      <workItem from="1592637846671" duration="2669000" />
+      <workItem from="1592637846671" duration="6833000" />
     </task>
     <task id="LOCAL-00001" summary="AdminController revised">
       <created>1592639108594</created>
@@ -146,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592639587471</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="All magic strings from services made on constants &#10;&#10;UserController renamed to IndexController">
+      <created>1592640618463</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592640618463</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,44 +178,45 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="AdminController revised" />
     <MESSAGE value="CurrencyDto.java update with annotation to validate only positive rates" />
-    <option name="LAST_COMMIT_MESSAGE" value="CurrencyDto.java update with annotation to validate only positive rates" />
+    <MESSAGE value="All magic strings from services made on constants &#10;&#10;UserController renamed to IndexController" />
+    <option name="LAST_COMMIT_MESSAGE" value="All magic strings from services made on constants &#10;&#10;UserController renamed to IndexController" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1592639364455">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1592643012643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1592639364455">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592643012643" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1592643012643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1592639364455">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592643012643" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1592643012643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1592639364455">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592643012643" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1592643012643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
-    <state width="1237" height="163" key="GridCell.Tab.1.bottom" timestamp="1592639364455">
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592643012643" />
+    <state width="1237" height="163" key="GridCell.Tab.1.bottom" timestamp="1592643012644">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.1.bottom/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
-    <state width="1237" height="163" key="GridCell.Tab.1.center" timestamp="1592639364455">
+    <state width="1237" height="163" key="GridCell.Tab.1.bottom/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592643012644" />
+    <state width="1237" height="163" key="GridCell.Tab.1.center" timestamp="1592643012643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.1.center/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
-    <state width="1237" height="163" key="GridCell.Tab.1.left" timestamp="1592639364455">
+    <state width="1237" height="163" key="GridCell.Tab.1.center/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592643012643" />
+    <state width="1237" height="163" key="GridCell.Tab.1.left" timestamp="1592643012643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.1.left/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
-    <state width="1237" height="163" key="GridCell.Tab.1.right" timestamp="1592639364455">
+    <state width="1237" height="163" key="GridCell.Tab.1.left/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592643012643" />
+    <state width="1237" height="163" key="GridCell.Tab.1.right" timestamp="1592643012644">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.1.right/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1592639590370">
+    <state width="1237" height="163" key="GridCell.Tab.1.right/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592643012644" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1592640625771">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639590370" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592640625771" />
   </component>
 </project>
