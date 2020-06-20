@@ -37,7 +37,7 @@ public class AdminController {
         String messageExistCode = "";
         model.addAttribute("messageCodeExist", messageExistCode);
         if (errors.hasErrors() || currencyService.isCurrencyExistByCode(currencyDto.getCode())) {
-            messageExistCode = "Currency code already exist!";
+            messageExistCode = currencyService.isCurrencyExistByCode(currencyDto.getCode()) ? "Currency code already exist!" : "";
             model.addAttribute("messageCodeExist", messageExistCode);
             return "add";
         }
@@ -53,13 +53,13 @@ public class AdminController {
     }
 
     @GetMapping("/admin/currency/delete/{code}")
-    public String deleteCurrency(@PathVariable String code){
+    public String deleteCurrency(@PathVariable String code) {
         currencyService.delete(code);
         return "redirect:/";
     }
 
     @GetMapping("/admin/currency/update/{code}")
-    public ModelAndView updateCurrency(@PathVariable String code){
+    public ModelAndView updateCurrency(@PathVariable String code) {
         Currency currency = currencyService.getByCode(code).get();
         ModelAndView modelAndView = new ModelAndView("update");
         modelAndView.addObject("currency", currency);
@@ -67,8 +67,8 @@ public class AdminController {
     }
 
     @PostMapping("/admin/currency/update/{code}")
-    public String updateCurrency(@Valid CurrencyDto currencyDto, Errors errors){
-        if (errors.hasErrors()){
+    public String updateCurrency(@Valid CurrencyDto currencyDto, Errors errors) {
+        if (errors.hasErrors()) {
             return "update";
         }
         Currency currency = convertToEntity(currencyDto);
@@ -76,7 +76,7 @@ public class AdminController {
         return "redirect:/";
     }
 
-    private Currency convertToEntity(CurrencyDto currencyDto){
+    private Currency convertToEntity(CurrencyDto currencyDto) {
         return modelMapper.map(currencyDto, Currency.class);
     }
 }

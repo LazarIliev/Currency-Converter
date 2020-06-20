@@ -17,7 +17,7 @@ public class CurrencyDto implements Serializable {
     @NotNull
     @Size(min = 5, max = 45, message = "Full name should be between 5 and 45 alphabet symbols")
     private String name;
-   // @Min(value = 0L, message = "The value must be positive")  todo
+    @Min(value = 0L, message = "The value must be positive")
     private Double rate;
     @Min(value = 1L, message = "The value must be positive")
     private int ratio;

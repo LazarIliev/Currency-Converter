@@ -19,16 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78d1d1ad-a6ed-4d43-9ade-eb93c7e0e35b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_2_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" afterDir="false" />
+    <list default="true" id="78d1d1ad-a6ed-4d43-9ade-eb93c7e0e35b" name="Default Changelist" comment="AdminController revised">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/CurrencyConverterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/CurrencyConverterApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/api/CurrencyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/api/CurrencyResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/security/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/security/WebSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/dto/CurrencyDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/dto/CurrencyDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/ui/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/java/com/example/currencyconverter/ui/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/currency-add-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/currency-converter/src/main/resources/templates/fragments/currency-add-form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +43,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -128,8 +126,16 @@
       <option name="presentableId" value="Default" />
       <updated>1592141176753</updated>
       <workItem from="1592141178324" duration="46000" />
-      <workItem from="1592637846671" duration="1017000" />
+      <workItem from="1592637846671" duration="1700000" />
     </task>
+    <task id="LOCAL-00001" summary="AdminController revised">
+      <created>1592639108594</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592639108595</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,5 +151,47 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="AdminController revised" />
+    <option name="LAST_COMMIT_MESSAGE" value="AdminController revised" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1592639364455">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1592639364455">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1592639364455">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1592639364455">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
+    <state width="1237" height="163" key="GridCell.Tab.1.bottom" timestamp="1592639364455">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.1.bottom/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
+    <state width="1237" height="163" key="GridCell.Tab.1.center" timestamp="1592639364455">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.1.center/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
+    <state width="1237" height="163" key="GridCell.Tab.1.left" timestamp="1592639364455">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.1.left/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
+    <state width="1237" height="163" key="GridCell.Tab.1.right" timestamp="1592639364455">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.1.right/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639364455" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1592639111219">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680/2.-1080.1920.1040@0.0.1280.680" timestamp="1592639111219" />
   </component>
 </project>
