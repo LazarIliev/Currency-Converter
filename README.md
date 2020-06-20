@@ -14,6 +14,7 @@ IntelliJ IDEA 2020.1
 Maven 3.6
 MySQL 8
 
+Check out pom.xml file of the project to get acquainted with all the dependencies, this is a list of some of them:
 Lombok for generating auto getters, setters and constructors
 Spring Security for admin administration
 Thymeleaf for view templating
@@ -32,7 +33,7 @@ ModelMapper import org.modelmapper.ModelMapper;
 You have to set yours environment varaibles into your IDE for your database url, username and password
 and to use it into application.properties file of the project
 ```
-spring.datasource.url=${MYSQL_URL}
+spring.datasource.url=${MYSQL_URL}  //todo to add more explanation
 spring.datasource.username=${MYSQL_USER}
 spring.datasource.password=${MYSQL_PASSWORD}
 ```
@@ -61,29 +62,8 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
 
-Explain how to run the automated tests for this system
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
@@ -96,22 +76,4 @@ Add additional notes about how to deploy this on a live system
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 

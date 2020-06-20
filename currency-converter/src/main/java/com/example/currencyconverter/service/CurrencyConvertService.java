@@ -13,8 +13,7 @@ public class CurrencyConvertService {
 //convertCurrency
     public String convertCurrencyFromTo(Currency currencyFrom, Currency currencyTo, Double amount) {
         Double fromCurrencyAmount = amount;
-        Double toCurrencyFactor = 1d;//1.95
-                                     //1.74
+        Double toCurrencyFactor = 1d;
         if (!currencyFrom.getCode().equals(BULGARIAN_CURRENCY_CODE)) {
             fromCurrencyAmount = getFromCurrencyAmount(currencyFrom, currencyTo, amount);
         }

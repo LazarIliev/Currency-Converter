@@ -6,10 +6,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CurrenciesLoadingService {
-
     @Autowired
     CurrenciesFromBNBService currenciesFromBNBService;
-
     @Autowired
     CurrencyService currencyService;
 
