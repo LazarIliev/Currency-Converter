@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class UserController {//todo this should be IndexController
+public class IndexController {
     @Autowired
     CurrencyService currencyService;
 

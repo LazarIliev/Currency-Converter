@@ -18,6 +18,7 @@ import java.util.Set;
 @Slf4j
 @Service
 public class CurrenciesFromBNBService {
+    private static final String ROW = "ROW";
     @Autowired
     CurrencyValidator currencyValidator;
     @Autowired
@@ -27,9 +28,8 @@ public class CurrenciesFromBNBService {
 
     public List<Currency> getCurrencies() {
         List<Currency> currencyList = new ArrayList<>();
-//todo to revise all the logic and names
         Document document = currenciesReader.readExternalStreamAsDocument();
-        NodeList nList = document.getElementsByTagName("ROW");
+        NodeList nList = document.getElementsByTagName(ROW);
         //skip first and last
         for (int temp = 1; temp < nList.getLength() - 1; temp++) {
             Node nNode = nList.item(temp);

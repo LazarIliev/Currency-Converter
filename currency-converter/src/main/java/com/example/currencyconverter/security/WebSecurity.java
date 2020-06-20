@@ -28,10 +28,12 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .formLogin();
 
     }
-//todo
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("admin").password(passwordEncoder().encode("123")).authorities("admin").roles("admin");//.roles("USER");
+                .withUser("admin")
+                .password(passwordEncoder().encode("123"))
+                .authorities("admin").roles("admin");//.roles("USER");
     }
 }

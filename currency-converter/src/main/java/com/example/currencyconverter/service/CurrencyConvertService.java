@@ -9,14 +9,15 @@ import java.text.DecimalFormat;
 @Service
 public class CurrencyConvertService {
     private static final DecimalFormat df2 = new DecimalFormat("#.####");
+    private static final String BULGARIAN_CURRENCY_CODE = "BGN";
 
-    public String convertCurrencyFromTo(Currency currencyFrom, Currency currencyTo, Double amount) {//todo rename
+    public String convertCurrencyFromTo(Currency currencyFrom, Currency currencyTo, Double amount) {
         Double fromCurrencyAmount = amount;
         Double toCurrencyFactor = 1d;
-        if (!currencyFrom.getCode().equals("BGN")) {
+        if (!currencyFrom.getCode().equals(BULGARIAN_CURRENCY_CODE)) {
             fromCurrencyAmount = getFromCurrencyAmount(currencyFrom, currencyTo, amount);
         }
-        if (!currencyTo.getCode().equals("BGN")) {
+        if (!currencyTo.getCode().equals(BULGARIAN_CURRENCY_CODE)) {
             toCurrencyFactor = getToCurrencyFactor(currencyFrom, currencyTo);
         }
         df2.setRoundingMode(RoundingMode.DOWN);

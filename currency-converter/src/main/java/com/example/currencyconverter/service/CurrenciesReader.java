@@ -13,7 +13,7 @@ import java.net.URL;
 
 @Service
 public class CurrenciesReader {
-    static final String XML_FILE_URL_FROM_BNB_CURRENCIES = "http://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=EN";
+    private static final String XML_FILE_URL_FROM_BNB_CURRENCIES = "http://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=EN";
 
     public Document readExternalStreamAsDocument(){
         Document doc = null;
