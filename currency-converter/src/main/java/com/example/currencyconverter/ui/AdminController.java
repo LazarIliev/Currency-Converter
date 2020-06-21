@@ -35,7 +35,6 @@ public class AdminController {
     @PostMapping("/admin/currency")
     public String addCurrency(@Valid CurrencyDto currencyDto, Errors errors, Model model) {
         String messageExistCode = "";
-        //todo validator to add list for forbidden currencies to not add
         model.addAttribute("messageCodeExist", messageExistCode);
         if (errors.hasErrors() || currencyService.isCurrencyExistByCode(currencyDto.getCode())) {
             messageExistCode = currencyService.isCurrencyExistByCode(currencyDto.getCode()) ? "Currency code already exist!" : "";
@@ -48,7 +47,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/currencies/refresh")
-    public String refreshCurrenciesRates() {//todo revise name
+    public String refreshCurrenciesRates() {
         currenciesLoadingService.refreshCurrencies();
         return "redirect:/";
     }
