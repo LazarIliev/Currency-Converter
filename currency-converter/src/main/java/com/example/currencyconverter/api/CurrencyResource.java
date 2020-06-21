@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Optional;
 
 @RestController
@@ -19,8 +20,8 @@ public class CurrencyResource {
 
     @GetMapping("api/convert")
     @CrossOrigin("*")
-    ResponseEntity<String> convert(@RequestParam String codeFrom, @RequestParam String codeTo, @RequestParam Double amount) {
-        if (amount <= 0) {
+    ResponseEntity<String> convert(@RequestParam @NotEmpty String codeFrom, @RequestParam @NotEmpty String codeTo, @RequestParam Double amount) {
+        if (amount <= 0 || codeFrom.equals(codeTo)) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         Optional<Currency> currencyFrom = currencyService.getByCode(codeFrom);
