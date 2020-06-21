@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 /*
 @NoArgsConstructor annotation for generating a constructor with no parameters
@@ -36,4 +34,9 @@ public class Currency {
     @NotNull
     @Min(value = 1L, message = "The value must be positive")
     private int ratio;
+
+    @AssertFalse
+    public boolean isCodeForbidden (){
+        return this.code.equals("XAU");
+    }
 }

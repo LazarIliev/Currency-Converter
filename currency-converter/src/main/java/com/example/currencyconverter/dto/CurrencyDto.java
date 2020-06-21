@@ -3,6 +3,7 @@ package com.example.currencyconverter.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.AssertFalse;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,4 +22,9 @@ public class CurrencyDto implements Serializable {
     private Double rate;
     @Min(value = 1L, message = "The value must be positive")
     private int ratio;
+
+    @AssertFalse
+    public boolean isCodeForbidden (){
+        return this.code.equals("XAU");//todo to think about an abstract class
+    }
 }

@@ -20,7 +20,7 @@ import java.util.Set;
 public class CurrenciesFromBNBService {
     private static final String ROW = "ROW";
     @Autowired
-    CurrencyValidator currencyValidator;//todo to add list for forbidden currencies to not add
+    CurrencyValidator currencyValidator;
     @Autowired
     CurrenciesReader currenciesReader;
     @Autowired
@@ -29,15 +29,13 @@ public class CurrenciesFromBNBService {
     public List<Currency> getCurrencies() {
         List<Currency> currencyList = new ArrayList<>();
         Document document = currenciesReader.readExternalStreamAsDocument();
-        NodeList nList = document.getElementsByTagName(ROW);//todo use iterator
-        //skip first and last, todo with validator
-        for (int temp = 1; temp < nList.getLength() - 1; temp++) {
+        NodeList nList = document.getElementsByTagName(ROW);
+        //skip first
+        for (int temp = 1; temp < nList.getLength(); temp++) {
             Node nNode = nList.item(temp);
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Currency currency = currencyParser.parseFromNode(nNode);
-                if (isValidCurrency(currency)) {
-                    currencyList.add(currency);
-                }
+            Currency currency = currencyParser.parseFromNode(nNode);
+            if (isValidCurrency(currency)) {
+                currencyList.add(currency);
             }
         }
         return currencyList;
