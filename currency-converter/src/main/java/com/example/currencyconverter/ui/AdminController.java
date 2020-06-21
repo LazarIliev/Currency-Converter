@@ -73,9 +73,8 @@ public class AdminController {
     }
 
     @PostMapping("/admin/currency/update/{code}")
-    public String updateCurrency(@Valid CurrencyDto currencyDto, Errors errors, Model model) {
+    public String updateCurrency(@Valid CurrencyDto currencyDto, Errors errors) {
         if (errors.hasErrors()) {
-            //model.addAttribute("currency", currencyDto);
             return "update";
         }
         Currency currency = convertToEntity(currencyDto);
