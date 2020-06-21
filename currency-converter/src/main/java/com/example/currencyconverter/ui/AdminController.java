@@ -62,14 +62,20 @@ public class AdminController {
     @GetMapping("/admin/currency/update/{code}")
     public ModelAndView updateCurrency(@PathVariable String code) {
         Currency currency = currencyService.getByCode(code).get();
+        CurrencyDto currencyDto = convertToCurrencyDto(currency);
         ModelAndView modelAndView = new ModelAndView("update");
-        modelAndView.addObject("currency", currency);
+        modelAndView.addObject("currencyDto", currencyDto);
         return modelAndView;
     }
 
+    private CurrencyDto convertToCurrencyDto(Currency currency) {
+        return modelMapper.map(currency, CurrencyDto.class);
+    }
+
     @PostMapping("/admin/currency/update/{code}")
-    public String updateCurrency(@Valid CurrencyDto currencyDto, Errors errors) {
+    public String updateCurrency(@Valid CurrencyDto currencyDto, Errors errors, Model model) {
         if (errors.hasErrors()) {
+            //model.addAttribute("currency", currencyDto);
             return "update";
         }
         Currency currency = convertToEntity(currencyDto);
