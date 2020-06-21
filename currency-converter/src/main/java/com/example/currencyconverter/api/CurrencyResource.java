@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -30,5 +31,11 @@ public class CurrencyResource {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(currencyConvertService.convertCurrency(currencyFrom.get(), currencyTo.get(), amount), HttpStatus.OK);
+    }
+
+    @GetMapping("api/currencies")
+    @CrossOrigin("*")
+    Iterable<Currency> getAllCurrencies(){
+        return currencyService.getAllCurrencies();
     }
 }

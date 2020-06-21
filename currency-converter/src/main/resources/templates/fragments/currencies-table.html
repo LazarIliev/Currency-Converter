@@ -9,14 +9,7 @@
             <th>Ratio</th>
         </tr>
         </thead>
-        <tbody>
-        <tr th:each="currency, rowStat: ${currencies}"
-            th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
-            <td th:text="${currency.getCode()}"></td>
-            <td th:text="${currency.getName()}"></td>
-            <td th:text="${currency.getRate()}"></td>
-            <td th:text="${currency.getRatio()}"></td>
-        </tr>
+        <tbody id="currencyTableBody">
         </tbody>
     </table>
 </div>
