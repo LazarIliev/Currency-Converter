@@ -1,5 +1,6 @@
 package com.example.currencyconverter.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -13,13 +14,13 @@ import java.net.URL;
 
 @Service
 public class CurrenciesReader {
-    //todo to make environment var
-    private static final String XML_FILE_URL_FROM_BNB_CURRENCIES = "http://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=EN";
+    @Value("${DOWNLOAD_XML_FILE_CURRENCIES_FROM_BNB_URL}")
+    private String DOWNLOAD_XML_FILE_CURRENCIES_FROM_BNB_URL;
 
     public Document readExternalStreamAsDocument(){
         Document doc = null;
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        try(InputStream urlBNBStream = new URL(XML_FILE_URL_FROM_BNB_CURRENCIES).openStream()){
+        try(InputStream urlBNBStream = new URL(DOWNLOAD_XML_FILE_CURRENCIES_FROM_BNB_URL).openStream()){
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(urlBNBStream);
             doc.getDocumentElement().normalize();

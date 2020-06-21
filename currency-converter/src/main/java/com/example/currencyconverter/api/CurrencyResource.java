@@ -29,6 +29,6 @@ public class CurrencyResource {
         if (currencyFrom.isEmpty() || currencyTo.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(currencyConvertService.convertCurrencyFromTo(currencyFrom.get(), currencyTo.get(), amount), HttpStatus.OK);
+        return new ResponseEntity<>(currencyConvertService.convertCurrency(currencyFrom.get(), currencyTo.get(), amount), HttpStatus.OK);
     }
 }

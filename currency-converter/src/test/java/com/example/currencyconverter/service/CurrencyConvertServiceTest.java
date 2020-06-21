@@ -13,7 +13,7 @@ class CurrencyConvertServiceTest {
         Currency currencyEUR = new Currency("EUR","Euro", 1.95, 1);
         Currency currencyUSD = new Currency("USD","USA", 1.74, 1);
 
-        String actualAmount = currencyConvertService.convertCurrencyFromTo(currencyEUR, currencyUSD, 20d);
+        String actualAmount = currencyConvertService.convertCurrency(currencyEUR, currencyUSD, 20d);
         String expectedAmount = "22.4137";
 
         assertEquals(expectedAmount, actualAmount);
@@ -24,8 +24,8 @@ class CurrencyConvertServiceTest {
         Currency currencyEUR = new Currency("BGN","bg", 1d, 1);
         Currency currencyUSD = new Currency("BGN","bg", 1d, 1);
 
-        String actualAmount = currencyConvertService.convertCurrencyFromTo(currencyEUR, currencyUSD, 20d);
-        String expectedAmount = "20";
+        String actualAmount = currencyConvertService.convertCurrency(currencyEUR, currencyUSD, 20d);
+        String expectedAmount = "Currency codes should not be the same!";
 
         assertEquals(expectedAmount, actualAmount);
     }

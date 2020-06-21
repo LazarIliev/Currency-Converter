@@ -30,12 +30,21 @@ ModelMapper import org.modelmapper.ModelMapper;
 ```
 
 
-You have to set yours environment varaibles into your IDE for your database url, username and password
+You have to set yours environment variables into your IDE for your database url, username, password, server port,
+url from which to update all currencies "http://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=EN"
 and to use it into application.properties file of the project
 ```
+server.port=${SERVER_PORT}
 spring.datasource.url=${MYSQL_URL}  //todo to add more explanation
 spring.datasource.username=${MYSQL_USER}
 spring.datasource.password=${MYSQL_PASSWORD}
+```
+
+```
+@Service
+public class CurrenciesReader {
+    @Value("${DOWNLOAD_XML_FILE_CURRENCIES_FROM_BNB_URL}")
+    private String DOWNLOAD_XML_FILE_CURRENCIES_FROM_BNB_URL;
 ```
 
 What things you need to install the software and how to install them

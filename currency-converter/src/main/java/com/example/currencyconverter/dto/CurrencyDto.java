@@ -25,6 +25,6 @@ public class CurrencyDto implements Serializable {
 
     @AssertFalse
     public boolean isCodeForbidden (){
-        return this.code.equals("XAU");//todo to think about an abstract class
+        return this.code.equals("XAU");
     }
 }
