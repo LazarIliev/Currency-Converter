@@ -31,4 +31,10 @@ public class CurrencyResource {
         }
         return new ResponseEntity<>(currencyConvertService.convertCurrency(currencyFrom.get(), currencyTo.get(), amount), HttpStatus.OK);
     }
+
+    @GetMapping("api/currencies")
+    @CrossOrigin("*")
+    Iterable<Currency> getAllCurrencies(){
+        return currencyService.getAllCurrencies();
+    }
 }
