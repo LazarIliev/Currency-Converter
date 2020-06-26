@@ -60,4 +60,4 @@ class ListCurrenciesComponent extends Component{
     }
 }
 
-export default ListCurrenciesComponent
+export default ListCurrenciesComponent;

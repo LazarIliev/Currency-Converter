@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import InstructorApp from './component/InstructorApp';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import IndexAppComponent from './component/IndexAppComponent';
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <InstructorApp/>
-      </div>
+      <Router>
+        {/* remove h1 */}
+        {/* <h1> Currency Convertor Application!</h1> */}
+        {/* to add menu component */}
+        <Switch>
+          {/* to use context for data  */}
+          {/* to change path="/" component=IndexAppComponent onLoading to save data into the context */}
+          <Route path="/" exact component={IndexAppComponent} />
+          {/* //<Route path="/login" exact component={LoginComponent} /> */}
+          {/* <AuthenticatedRoute path="/logout" exact component={LogoutComponent} /> */}
+          {/* <AuthenticatedRoute path="/courses" exact component={ListCoursesComponent} /> */}
+        </Switch>
+      </Router>
     );
   }
 }
