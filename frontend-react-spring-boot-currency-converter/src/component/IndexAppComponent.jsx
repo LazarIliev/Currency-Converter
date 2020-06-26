@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListCurrenciesComponent from './ListCurrenciesComponent';
 import CurrencyDataService from '../service/CurrencyDataService';
 import CurrenciesContext from '../CurrenciesContext'
+import CurrencyConvertFormComponent from './CurrencyConvertFormComponent';
 
 class IndexAppComponent extends Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class IndexAppComponent extends Component {
         return(
             <div className="container">
                 <CurrenciesContext.Provider value={this.state.currencies}>
+                    <CurrencyConvertFormComponent/>
                     <ListCurrenciesComponent/>
                 </CurrenciesContext.Provider>
             </div>
