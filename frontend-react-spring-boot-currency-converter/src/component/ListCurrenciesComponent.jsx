@@ -1,30 +1,8 @@
 import React, { Component } from 'react';
-import CurrencyDataService from '../service/CurrencyDataService';
-
+import CurrenciesContext from '../CurrenciesContext';
 
 class ListCurrenciesComponent extends Component{
-    constructor(props) {
-        super(props)
-        this.state = {
-            currencies: [],
-            message: null
-        }
-        this.getCurrencies = this.getCurrencies.bind(this)
-    }
-
-    componentDidMount(){
-        this.getCurrencies();
-    }
-
-    getCurrencies(){
-        CurrencyDataService.retrieveAllCurrencies()
-            .then(
-                response => {
-                    // console.log(response);
-                    this.setState( { currencies: response.data })
-                }
-            )
-    }
+    static contextType = CurrenciesContext;
 
     render() {
         return (
@@ -42,7 +20,7 @@ class ListCurrenciesComponent extends Component{
                         </thead>
                         <tbody>
                             {
-                                this.state.currencies.map(
+                                this.context.map(
                                     currency =>
                                     <tr key={currency.code}>                                    
                                         <td>{currency.code}</td>
