@@ -3,10 +3,11 @@ import ListCurrenciesComponent from './ListCurrenciesComponent';
 import CurrencyDataService from '../service/CurrencyDataService';
 import CurrenciesContext from '../CurrenciesContext'
 import CurrencyConvertFormComponent from './CurrencyConvertFormComponent';
+import NavbarComponent from './NavbarComponent';
 
 class IndexAppComponent extends Component {
-    constructor(props) {
-        super(props)
+    constructor(props) { 
+        super(props) 
         this.state = {
             currencies: [],
             message: null
@@ -30,6 +31,8 @@ class IndexAppComponent extends Component {
     render() {
         return(
             <div className="container">
+                {/* navbar  */}
+                <NavbarComponent/>
                 <CurrenciesContext.Provider value={this.state.currencies}>
                     <CurrencyConvertFormComponent/>
                     <ListCurrenciesComponent/>

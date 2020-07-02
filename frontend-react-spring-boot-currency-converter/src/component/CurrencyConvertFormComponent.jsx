@@ -24,7 +24,7 @@ class CurrencyConvertFormComponent extends Component {
             .then(
                 response => {
                     console.log(response.data)
-                    this.setState({result : response.data})
+                    this.setState({ result: response.data })
                 }
             )
     }
@@ -32,15 +32,15 @@ class CurrencyConvertFormComponent extends Component {
     render() {
         return (
             <div className="container">
-                <Formik initialValues={{codeFrom: "", codeTo:"", amount: 0.0}} 
-                        onSubmit={this.onSubmit}>
+                <Formik initialValues={{ codeFrom: "", codeTo: "", amount: 0.0 }}
+                    onSubmit={this.onSubmit}>
                     <Form>
                         <div className="form-group">
                             <label htmlFor="codeFrom">From:</label>
                             <Field as="select" type="text" className="form-control selectpicker" name="codeFrom" id="codeFrom">
                                 <option value="">Select currency code from</option>
                                 {
-                                    this.context.map(currency => 
+                                    this.context.map(currency =>
                                         <option key={currency.code} value={currency.code} >{currency.code}</option>
                                     )
                                 }
@@ -51,11 +51,11 @@ class CurrencyConvertFormComponent extends Component {
                             <Field as="select" className="form-control selectpicker" name="codeTo" id="codeTo">
                                 <option value="">Select currency code to</option>
                                 {
-                                    this.context.map(currency => 
-                                        <option key={currency.code}  value={currency.code} text={currency.code} >{currency.code}</option>
+                                    this.context.map(currency =>
+                                        <option key={currency.code} value={currency.code} text={currency.code} >{currency.code}</option>
                                     )
                                 }
-                            </Field>                            
+                            </Field>
                         </div>
                         <div className="form-group">
                             <label htmlFor="amount">Amount:</label>
