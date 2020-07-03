@@ -12,6 +12,10 @@ class CurrencyDataService{
     convertCurrency(fromCurrencyCode, toCurrencyCode, amount){
         return axios.get(`${CURRENCY_API_URL}/api/convert?codeFrom=${fromCurrencyCode}&codeTo=${toCurrencyCode}&amount=${amount}`);
     }
+
+    addCurrency(code, name, rate, ratio){
+        return axios.post(`${CURRENCY_API_URL}/api/add`,{code, name, rate, ratio})
+    }
 }
 
 export default new CurrencyDataService();

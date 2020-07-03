@@ -1,6 +1,7 @@
 package com.example.currencyconverter.api;
 
 import com.example.currencyconverter.domain.Currency;
+import com.example.currencyconverter.dto.CurrencyDto;
 import com.example.currencyconverter.service.CurrencyConvertService;
 import com.example.currencyconverter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,16 @@ public class CurrencyResource {
     @CrossOrigin("*")
     Iterable<Currency> getAllCurrencies(){
         return currencyService.getAllCurrencies();
+    }
+
+    //to api/add addCurrency
+
+    @PostMapping("api/add")
+    @CrossOrigin("*")
+    ResponseEntity<String> addCurrency(@RequestBody CurrencyDto currencyDto){
+        String a = "";
+
+
+        return ResponseEntity.ok("Currency added.");
     }
 }

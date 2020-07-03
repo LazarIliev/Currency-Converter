@@ -37,7 +37,7 @@ public class JwtAuthenticationController {
         //userDetails.setUsername(authenticationRequest.getUsername());
 
 
-        final String token = jwtTokenUtil.generateToken(userDetails);
+        final String token = jwtTokenUtil.generateToken(userDetails);//todo  Unable to get JWT Token
         return ResponseEntity.ok(new JwtResponse(token));
     }
 

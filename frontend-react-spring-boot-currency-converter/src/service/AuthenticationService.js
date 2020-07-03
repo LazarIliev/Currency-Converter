@@ -15,8 +15,12 @@ class AuthenticationService {
     }
 
     registerSuccessfulLoginForJwt(username, token) {
-        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
-        this.setupAxiosInterceptors(this.createJWTToken(token))
+        //sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+        //this.setupAxiosInterceptors(this.createJWTToken(token))
+        let createdToken = this.createJWTToken(token);
+        localStorage.setItem("authorization", createdToken);
+        localStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+        this.setupAxiosInterceptors(createdToken);
     }
 
     createJWTToken(token) {
@@ -25,17 +29,17 @@ class AuthenticationService {
 
 
     logout() {
-        sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+        localStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
     }
 
     isUserLoggedIn() {
-        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        let user = localStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
         if (user === null) return false
         return true
     }
 
     getLoggedInUserName() {
-        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        let user = localStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
         if (user === null) return ''
         return user
     }

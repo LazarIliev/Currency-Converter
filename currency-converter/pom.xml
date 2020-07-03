@@ -96,7 +96,7 @@
 <!--		todo to document into the readme file-->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
+			<artifactId>jjwt</artifactId><!--<artifactId>jjwt-api</artifactId> -->
 			<version>0.9.1</version>
 		</dependency>
 		<dependency>
@@ -104,6 +104,18 @@
 			<artifactId>json</artifactId>
 			<version>20180813</version>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>io.jsonwebtoken</groupId>-->
+<!--			<artifactId>jjwt-impl</artifactId>-->
+<!--			<version>0.10.7</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.jsonwebtoken</groupId>-->
+<!--			<artifactId>jjwt-jackson</artifactId>-->
+<!--			<version>0.10.7</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 
 
 	</dependencies>

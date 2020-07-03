@@ -8,8 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.security.Key;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Function;
 
 @Component
@@ -30,13 +31,13 @@ public class JwtTokenUtil implements Serializable {
     }
 
     public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = getAllClaimsFromToken(token);
+        final Claims claims = getAllClaimsFromToken(token);//todo
         return claimsResolver.apply(claims);
     }
 
     // for retrieveing any information from token we will need the secret key
     private Claims getAllClaimsFromToken(String token) {
-        return Jwts.parser().setSigningKey(secret)
+        return Jwts.parser().setSigningKey(secret.getBytes())
                 .parseClaimsJws(token).getBody();
     }
 
@@ -49,6 +50,7 @@ public class JwtTokenUtil implements Serializable {
     // generate token for user
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        //claims.put("admin", "admin");
         String username = userDetails.getUsername();
         return doGenerateToken(claims, username);
     }

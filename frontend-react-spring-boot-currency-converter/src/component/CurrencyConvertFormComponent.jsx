@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Form, Field } from 'formik';
 import CurrenciesContext from '../CurrenciesContext';
-import CurrencyDataService from '../service/CurrencyDataService'
+import CurrencyDataService from '../service/CurrencyDataService';
 
 
 class CurrencyConvertFormComponent extends Component {

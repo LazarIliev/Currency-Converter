@@ -5,6 +5,7 @@ import IndexAppComponent from './component/IndexAppComponent';
 import LoginComponent from './component/LoginComponent';
 import LogoutComponent from './component/LogoutComponent';
 import AuthenticatedRoute from './component/AuthenticatedRoute';
+import AddComponent from './component/AddComponent';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/" exact component={IndexAppComponent} />
           <Route path="/login" exact component={LoginComponent}/>
           <AuthenticatedRoute path="/logout" exact component={LogoutComponent} />
+          <AuthenticatedRoute path="/add" exact component={AddComponent} />
           {/* //<Route path="/login" exact component={LoginComponent} /> */}
           {/* <AuthenticatedRoute path="/logout" exact component={LogoutComponent} /> */}
           {/* <AuthenticatedRoute path="/courses" exact component={ListCoursesComponent} /> */}
