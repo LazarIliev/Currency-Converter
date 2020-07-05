@@ -4,6 +4,7 @@ import com.example.currencyconverter.domain.Currency;
 import com.example.currencyconverter.dto.CurrencyDto;
 import com.example.currencyconverter.service.CurrencyConvertService;
 import com.example.currencyconverter.service.CurrencyService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,8 @@ public class CurrencyResource {
     CurrencyConvertService currencyConvertService;
     @Autowired
     CurrencyService currencyService;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @GetMapping("api/convert")
     @CrossOrigin("*")
@@ -44,9 +47,15 @@ public class CurrencyResource {
     @PostMapping("api/add")
     @CrossOrigin("*")
     ResponseEntity<String> addCurrency(@RequestBody CurrencyDto currencyDto){
-        String a = "";
-
+        // if (errors.hasErrors() || currencyService.isCurrencyExistByCode(currencyDto.getCode())) {
+        Currency currency = convertToEntity(currencyDto);
+        currencyService.addCurrency(currency);
 
         return ResponseEntity.ok("Currency added.");
     }
+
+    private Currency convertToEntity(CurrencyDto currencyDto) {
+        return modelMapper.map(currencyDto, Currency.class);
+    }
+
 }

@@ -23,8 +23,6 @@ public class JwtUserDetails implements UserDetails {
         this.authorities = authorities;
     }
 
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
@@ -54,7 +52,7 @@ public class JwtUserDetails implements UserDetails {
     @Override
     public boolean isCredentialsNonExpired() {
         return false;
-    }
+    }//todo
 
     @Override
     public boolean isEnabled() {

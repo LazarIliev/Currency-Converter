@@ -26,11 +26,9 @@ public class JwtUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if ("admin".equals(username))
         {
-//            return new User("admin", "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6",
-//                    new ArrayList<>());//todo admin role
             Optional<JwtUserDetails> findFirst = inMemoryUserList.stream()
                     .filter(user -> user.getUsername().equals(username)).findFirst();
-            if (!findFirst.isPresent()) {
+            if (findFirst.isEmpty()) {
                 throw new UsernameNotFoundException(String.format("USER_NOT_FOUND '%s'.", username));
             }
             return findFirst.get();

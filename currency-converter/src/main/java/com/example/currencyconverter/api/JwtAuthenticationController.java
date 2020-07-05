@@ -16,13 +16,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 public class JwtAuthenticationController {
-
     @Autowired
     private AuthenticationManager authenticationManager;
-
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
-
     @Autowired
     private JwtUserDetailsService userDetailsService;
 
@@ -37,7 +34,7 @@ public class JwtAuthenticationController {
         //userDetails.setUsername(authenticationRequest.getUsername());
 
 
-        final String token = jwtTokenUtil.generateToken(userDetails);//todo  Unable to get JWT Token
+        final String token = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }
 

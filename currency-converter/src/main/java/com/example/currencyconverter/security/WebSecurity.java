@@ -48,6 +48,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    //todo not used
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**").allowedOrigins("*")
                 .allowedMethods("HEAD", "GET", "PUT", "POST",
@@ -77,30 +78,4 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         // Add a filter to validate the tokens with every request--------------------
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
-
-//----------------------------------------------------------------------------------------------------
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests().antMatchers("/admin/*").access("hasRole('admin')").and()
-//                .cors()
-//                .and()
-//                .csrf()
-//                .disable().authorizeRequests()
-//                .and()
-//                .formLogin();
-//
-//    }
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("admin")
-//                .password(passwordEncoder().encode("123"))
-//                .authorities("admin").roles("admin");//.roles("USER");
-//    }
 }
