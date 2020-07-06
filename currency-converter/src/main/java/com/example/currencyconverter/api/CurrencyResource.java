@@ -48,10 +48,20 @@ public class CurrencyResource {
     @CrossOrigin("*")
     ResponseEntity<String> addCurrency(@RequestBody CurrencyDto currencyDto){
         // if (errors.hasErrors() || currencyService.isCurrencyExistByCode(currencyDto.getCode())) {
+        //return respons bad request
         Currency currency = convertToEntity(currencyDto);
         currencyService.addCurrency(currency);
 
         return ResponseEntity.ok("Currency added.");
+    }
+
+    @DeleteMapping("api/currency/{code}")
+    @CrossOrigin("*")
+    ResponseEntity<String> deleteCurrency(@PathVariable String code){
+        //validate code
+        currencyService.delete(code);
+
+        return ResponseEntity.ok("Currency deleted.");
     }
 
     private Currency convertToEntity(CurrencyDto currencyDto) {

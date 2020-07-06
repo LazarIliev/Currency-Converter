@@ -18,8 +18,8 @@ class AuthenticationService {
         //sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
         //this.setupAxiosInterceptors(this.createJWTToken(token))
         let createdToken = this.createJWTToken(token);
-        localStorage.setItem("authorization", createdToken);
-        localStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+        sessionStorage.setItem("authorization", createdToken);
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
         this.setupAxiosInterceptors(createdToken);
     }
 
@@ -29,24 +29,27 @@ class AuthenticationService {
 
 
     logout() {
-        localStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+        sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+        sessionStorage.removeItem("authorization");
     }
 
     isUserLoggedIn() {
-        let user = localStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
         if (user === null) return false
         return true
     }
 
     getLoggedInUserName() {
-        let user = localStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
         if (user === null) return ''
         return user
     }
 
+    //todo to set it if refresh page
     setupAxiosInterceptors(token) {
         axios.interceptors.request.use(
             (config) => {
+                console.log("setupAxiosInterceptors")
                 if (this.isUserLoggedIn()) {
                     config.headers.authorization = token
                 }

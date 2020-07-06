@@ -7,7 +7,7 @@ class LoginComponent extends Component {
         super(props)
 
         this.state = {
-            username: 'in28minutes',
+            username: '',
             password: '',
             hasLoginFailed: false,
             showSuccessMessage: false
@@ -27,21 +27,7 @@ class LoginComponent extends Component {
     }
 
     loginClicked() {
-        // const endpoint = "http://localhost:7777/authenticate";
-
-        // const username = this.state.username;
-        // const password = this.state.password;
-
-        // const user_object = {
-        //     username: username,
-        //     password: password
-        //   };
-        //   console.log(user_object);
-        //   axios.post(endpoint, user_object).then(res => {
-        //     localStorage.setItem("authorization", res.data.token);
-        //     console.log(res.data.token);
-        //     //return this.handleDashboard();
-        //   });
+       
 
                   AuthenticationService
             .executeJwtAuthenticationService(this.state.username, this.state.password)
