@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class JwtUserDetailsService implements UserDetailsService {
-
     static List<JwtUserDetails> inMemoryUserList = new ArrayList<>();
 
     static {

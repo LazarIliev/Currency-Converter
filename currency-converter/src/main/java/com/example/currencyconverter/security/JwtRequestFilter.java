@@ -1,6 +1,7 @@
 package com.example.currencyconverter.security;
 
-import com.example.currencyconverter.service.JwtUserDetailsService;
+//import com.example.currencyconverter.service.JwtUserDetailsService;
+import com.example.currencyconverter.kotlin.service.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

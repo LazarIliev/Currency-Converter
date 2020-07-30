@@ -4,8 +4,9 @@ package com.example.currencyconverter.api;
 import com.example.currencyconverter.kotlin.domain.JwtRequest;
 //import com.example.currencyconverter.domain.JwtResponse;//todo kotlin
 import com.example.currencyconverter.kotlin.domain.JwtResponse;
+import com.example.currencyconverter.kotlin.service.JwtUserDetailsService;
 import com.example.currencyconverter.security.JwtTokenUtil;
-import com.example.currencyconverter.service.JwtUserDetailsService;
+//import com.example.currencyconverter.service.JwtUserDetailsService;//todo kotlin
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
