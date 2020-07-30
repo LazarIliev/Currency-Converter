@@ -1,6 +1,7 @@
 package com.example.currencyconverter.kotlin.service
 
-import com.example.currencyconverter.domain.JwtUserDetails
+//import com.example.currencyconverter.domain.JwtUserDetails//todo kotlin
+import com.example.currencyconverter.kotlin.domain.JwtUserDetails
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
