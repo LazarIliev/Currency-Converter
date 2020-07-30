@@ -19,6 +19,9 @@ public ModelMapper modelMapper() {
 }
 
 	public static void main(String[] args) {
+		Person person = new Person("Pesho");
+		System.out.println(person);
+		System.out.println(person.getName());
 		SpringApplication.run(CurrencyConverterApplication.class, args);
 	}
 }

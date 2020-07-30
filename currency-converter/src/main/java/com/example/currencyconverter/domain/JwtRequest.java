@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class JwtRequest implements Serializable {
     private String username;
     private String password;
-//todo to add lombok
+//todo never used
     // need default constructor for JSON Parsing
     public JwtRequest() {
 
