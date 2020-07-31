@@ -16,14 +16,14 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@CrossOrigin
+//@RestController
+//@CrossOrigin
 public class JwtAuthenticationController {
-    @Autowired
+    //@Autowired
     private AuthenticationManager authenticationManager;
-    @Autowired
+    //@Autowired
     private JwtTokenUtil jwtTokenUtil;
-    @Autowired
+    //@Autowired
     private JwtUserDetailsService userDetailsService;
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)

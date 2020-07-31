@@ -5,14 +5,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
 class JwtUserDetails(private var id: Long, private var username: String, private var password : String, private var role : String) : UserDetails {
+    private val authorities: Collection<GrantedAuthority> = listOf(SimpleGrantedAuthority(role))
 
-    //private val  authorities :  Collection<GrantedAuthority>
-    private val authorities: Collection<out GrantedAuthority?>? = listOf(SimpleGrantedAuthority(role))
-//    init {
-//        authorities.add(SimpleGrantedAuthority(role))
-//    }
-
-    override fun getAuthorities(): Collection<out GrantedAuthority?>? {
+    override fun getAuthorities(): Collection<GrantedAuthority> {
         return authorities
     }
 
