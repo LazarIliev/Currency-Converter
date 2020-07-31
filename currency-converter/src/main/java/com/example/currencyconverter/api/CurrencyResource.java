@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Optional;
 
-@RestController
+//@RestController
 public class CurrencyResource {
-    @Autowired
+    //@Autowired
     CurrencyConvertService currencyConvertService;
-    @Autowired
+    //@Autowired
     CurrencyService currencyService;
-    @Autowired
+    //@Autowired
     private ModelMapper modelMapper;
 
     @GetMapping("api/convert")
