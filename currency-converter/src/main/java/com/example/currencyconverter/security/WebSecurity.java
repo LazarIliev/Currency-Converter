@@ -17,6 +17,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import com.example.currencyconverter.kotlin.security.JwtAuthenticationEntryPoint;
+import com.example.currencyconverter.kotlin.security.JwtRequestFilter;
+
 
 @Configuration
 @EnableWebSecurity
