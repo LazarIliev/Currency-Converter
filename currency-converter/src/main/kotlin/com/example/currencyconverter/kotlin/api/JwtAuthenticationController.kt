@@ -2,8 +2,9 @@ package com.example.currencyconverter.kotlin.api
 
 import com.example.currencyconverter.kotlin.domain.JwtRequest
 import com.example.currencyconverter.kotlin.domain.JwtResponse
+import com.example.currencyconverter.kotlin.security.JwtTokenUtil
 import com.example.currencyconverter.kotlin.service.JwtUserDetailsService
-import com.example.currencyconverter.security.JwtTokenUtil
+
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.web.bind.annotation.CrossOrigin

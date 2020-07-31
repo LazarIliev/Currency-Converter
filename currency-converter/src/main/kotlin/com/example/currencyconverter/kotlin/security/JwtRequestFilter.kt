@@ -1,7 +1,6 @@
 package com.example.currencyconverter.kotlin.security
 
 import com.example.currencyconverter.kotlin.service.JwtUserDetailsService
-import com.example.currencyconverter.security.JwtTokenUtil
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
@@ -29,7 +28,7 @@ class JwtRequestFilter(val jwtUserDetailsService: JwtUserDetailsService, val jwt
         if (username != null && SecurityContextHolder.getContext().authentication == null){
             val userDetails : UserDetails = jwtUserDetailsService.loadUserByUsername(username)
 
-            if(jwtTokenUtil.validateToken(jwtToken, userDetails)){
+            if(jwtTokenUtil.validateToken(jwtToken, userDetails)!!){
                 val usernamePasswordAuthenticationToken: UsernamePasswordAuthenticationToken = UsernamePasswordAuthenticationToken(userDetails, null, userDetails.authorities)
                 usernamePasswordAuthenticationToken.details = WebAuthenticationDetailsSource().buildDetails(request)
                 SecurityContextHolder.getContext().authentication = usernamePasswordAuthenticationToken
