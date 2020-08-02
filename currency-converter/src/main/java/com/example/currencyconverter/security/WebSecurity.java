@@ -20,25 +20,25 @@ import com.example.currencyconverter.kotlin.security.JwtAuthenticationEntryPoint
 import com.example.currencyconverter.kotlin.security.JwtRequestFilter;
 
 
-@Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@Configuration
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurity extends WebSecurityConfigurerAdapter {
-    @Autowired
+   // @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-    @Autowired
+    //@Autowired
     private UserDetailsService jwtUserDetailsService;
 
-    @Autowired
+    //@Autowired
     private JwtRequestFilter jwtRequestFilter;
 
-    @Autowired
+    //@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         // configure AuthenticationManager so that it knows from where to load
         // user for matching credentials
         // Use BCryptPasswordEncoder
-        auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
+       // auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Bean

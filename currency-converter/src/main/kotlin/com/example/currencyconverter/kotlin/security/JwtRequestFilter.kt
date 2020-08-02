@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 @Component
-class JwtRequestFilter(val jwtUserDetailsService: JwtUserDetailsService, val jwtTokenUtil: JwtTokenUtil) : OncePerRequestFilter() {
+class JwtRequestFilter(private val jwtUserDetailsService: JwtUserDetailsService, private val jwtTokenUtil: JwtTokenUtil) : OncePerRequestFilter() {
     override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain) {
         val requestTokenHeader: String? = request.getHeader("authorization")
 

@@ -13,8 +13,8 @@ import javax.validation.constraints.NotEmpty
 
 @RestController
 @CrossOrigin("*")
-class CurrencyResource(val currencyConvertService : CurrencyConvertService,
-val currencyService : CurrencyService, val modelMapper: ModelMapper) {
+class CurrencyResource(private val currencyConvertService : CurrencyConvertService,
+private val currencyService : CurrencyService, private  val modelMapper: ModelMapper) {
 
     @GetMapping("api/convert")
     fun convert (@RequestParam @NotEmpty codeFrom: String, @RequestParam @NotEmpty codeTo: String,

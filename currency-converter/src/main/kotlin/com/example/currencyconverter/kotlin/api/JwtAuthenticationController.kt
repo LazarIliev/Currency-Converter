@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @CrossOrigin
-class JwtAuthenticationController(val jwtTokenUtil: JwtTokenUtil, val userDetailsService: JwtUserDetailsService) {
+class JwtAuthenticationController(private val jwtTokenUtil: JwtTokenUtil, private val userDetailsService: JwtUserDetailsService) {
 
     @PostMapping("/authenticate")
     fun createAuthenticationToken(@RequestBody authenticationRequest: JwtRequest)

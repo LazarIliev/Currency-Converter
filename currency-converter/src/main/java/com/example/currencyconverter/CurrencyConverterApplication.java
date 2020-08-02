@@ -8,17 +8,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
-@SpringBootApplication
-@EnableJpaRepositories("com.example.currencyconverter.dao")
-@EntityScan("com.example.currencyconverter.domain")
+//@SpringBootApplication
+//@EnableJpaRepositories("com.example.currencyconverter.dao")
+//@EntityScan("com.example.currencyconverter.domain")
 public class CurrencyConverterApplication {
 
-@Bean
-public ModelMapper modelMapper() {
-	return new ModelMapper();
-}
+//@Bean
+//public ModelMapper modelMapper() {
+//	return new ModelMapper();
+//}
 
-	public static void main(String[] args) {
-		SpringApplication.run(CurrencyConverterApplication.class, args);
-	}
+//	public static void main(String[] args) {
+//		SpringApplication.run(CurrencyConverterApplication.class, args);
+//	}
 }
