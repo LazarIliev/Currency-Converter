@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 @Service
 class JwtUserDetailsService : UserDetailsService{
     companion object {
-        var inMemoryUserList : List<JwtUserDetails> = listOf(JwtUserDetails(1L, "admin",
+        val inMemoryUserList : List<JwtUserDetails> = listOf(JwtUserDetails(1L, "admin",
                 "$2a$10$3zHzb.Npv1hfZbLEU5qsdOju/tk2je6W6PnNnY.c1ujWPcZh4PL6e", "admin"))
     }
 
